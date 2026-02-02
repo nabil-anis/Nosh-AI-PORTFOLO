@@ -67,7 +67,7 @@ const App: React.FC = () => {
       <footer className="py-24 px-6 bg-white dark:bg-black border-t border-black/[0.05] dark:border-white/[0.05] transition-colors duration-500">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 items-center gap-12">
           {/* Left Column: Stylized Logo Stacked above Text */}
-          <div className="flex flex-col items-center md:items-start gap-4">
+          <div className="flex flex-col items-center md:items-start gap-1">
             <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center">
               <img
                 src="/nosh-logo.png"
