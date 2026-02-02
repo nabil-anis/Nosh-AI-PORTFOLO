@@ -37,40 +37,40 @@ export const PROJECTS: Project[] = [
 
   // Websites
   {
-    id: 'nosh-lab-01',
-    client: 'Nosh Lab',
-    scope: 'The Orchestrator UI',
-    description: 'A high-performance control panel emphasizing sub-second interaction and absolute clarity. Built to handle complex system monitoring with aesthetic restraint.',
+    id: 'doctor-alex-carter',
+    client: 'Dr. Alex Carter',
+    scope: 'Virtual Healthcare Portfolio',
+    description: 'A sophisticated healthcare orchestration platform featuring a 24/7 AI-driven medical consultant. Built to provide seamless, secure, and instant health assistance with a focus on empathy and clinical accuracy.',
     category: 'Websites',
     media: [
-      { type: 'video', src: '/assets/binary-code.mp4' }
+      { type: 'image', src: '/assets/logic-flow.jpg' }
     ],
-    url: 'https://nosh.ai/lab/orchestrator',
-    techStack: ['React', 'Framer Motion', 'WebSockets', 'AI']
+    url: 'https://www.doctoralexcarter.com/',
+    techStack: ['React', 'AI Orchestration', 'Node.js', 'PostgreSQL']
   },
   {
-    id: 'minimal-store-2',
-    client: 'Aether Collective',
-    scope: 'Bespoke Commerce Flow',
-    description: 'A premium, headless commerce experience for high-end digital assets. Focused on low-friction checkout flows and retina-grade visual fidelity.',
+    id: 'gavel-ai-hiring',
+    client: 'Gavel',
+    scope: 'AI-Powered Recruitment Interface',
+    description: 'An industry-leading AI recruitment engine that automates the initial interviewing phase. Designed to streamline talent acquisition by processing thousands of candidate signals into actionable hiring intelligence.',
     category: 'Websites',
     media: [
-      { type: 'image', src: '/assets/minimal-store.jpg' }
+      { type: 'image', src: '/assets/neural-interface.jpg' }
     ],
-    url: 'https://nosh.ai/lab/terminal',
-    techStack: ['TypeScript', 'Next.js', 'PostgreSQL']
+    url: 'https://joingavel.com/',
+    techStack: ['TypeScript', 'Next.js', 'Neural Networks', 'AWS']
   },
   {
-    id: 'velocity-dash-x',
-    client: 'Hyperion Systems',
-    scope: 'Real-Time Analytics Grid',
-    description: 'A dedicated data visualization environment for monitoring distributed server clusters. Designed for immediate readability and zero cognitive load during crisis management.',
+    id: 'online-ebook-fair',
+    client: 'Online Ebook Fair',
+    scope: 'Digital Literary Marketplace',
+    description: 'A massive digital ecosystem for literary discovery and distribution. An interactive marketplace bringing together authors and readers through an optimized virtual gallery and transaction layer.',
     category: 'Websites',
     media: [
       { type: 'image', src: '/assets/grid-system.jpg' }
     ],
-    url: 'https://nosh.ai/lab/velocity',
-    techStack: ['Vue.js', 'D3.js', 'Firebase']
+    url: 'https://onlineebookfair.com/home-2/',
+    techStack: ['PHP', 'WooCommerce', 'MySQL', 'Custom API']
   },
 
   // Chatbots
@@ -122,18 +122,25 @@ export const ACHIEVEMENTS: Achievement[] = [
 
 export const WEBSITES: Website[] = [
   {
-    id: 'nosh-lab-01',
-    name: 'The Orchestrator',
-    description: 'A live control panel for autonomous voice systems.',
-    url: 'https://nosh.ai/lab/orchestrator',
-    techStack: ['React', 'Framer Motion', 'WebSockets', 'AI']
+    id: 'doctor-alex-carter',
+    name: 'Dr. Alex Carter',
+    description: 'AI-driven healthcare consultant platform.',
+    url: 'https://www.doctoralexcarter.com/',
+    techStack: ['React', 'AI Orchestration', 'Node.js']
   },
   {
-    id: 'nosh-lab-02',
-    name: 'Shift Terminal',
-    description: 'High-frequency data orchestration platform for capital management.',
-    url: 'https://nosh.ai/lab/terminal',
-    techStack: ['TypeScript', 'Next.js', 'PostgreSQL']
+    id: 'gavel-ai-hiring',
+    name: 'Gavel',
+    description: 'AI-powered recruitment and interviewing engine.',
+    url: 'https://joingavel.com/',
+    techStack: ['TypeScript', 'Next.js', 'Neural Networks']
+  },
+  {
+    id: 'online-ebook-fair',
+    name: 'Online Ebook Fair',
+    description: 'Digital ecosystem for literary marketplaces.',
+    url: 'https://onlineebookfair.com/home-2/',
+    techStack: ['PHP', 'WooCommerce', 'MySQL']
   }
 ];
 

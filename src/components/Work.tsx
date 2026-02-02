@@ -181,38 +181,40 @@ export const Work: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.6 }}
-                    className="group/category min-h-[80vh] flex flex-col gap-24 sm:gap-32"
+                    className="group/category flex flex-col gap-12 sm:gap-24"
                   >
-                    {/* Category Header - Full Width & Centered */}
-                    <div className="w-full text-center flex flex-col items-center px-4">
-                      <p className="text-brand-purple text-[10px] sm:text-[11px] font-black tracking-[0.6em] uppercase mb-6">{cat.tech}</p>
-                      <h3 className="text-6xl sm:text-8xl md:text-[10vw] font-bold tracking-tighter text-black dark:text-white mb-8 leading-[0.85]">{cat.label}</h3>
-                      <p className="text-lg sm:text-2xl text-gray-400 dark:text-zinc-500 font-medium leading-relaxed max-w-3xl text-balance">{cat.desc}</p>
+                    {/* Category Header - Standard Left Aligned */}
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 mb-8 sm:mb-16 items-end text-left">
+                      <div className="lg:col-span-8">
+                        <p className="text-brand-purple text-[9px] sm:text-[10px] font-black tracking-[0.5em] uppercase mb-4">{cat.tech}</p>
+                        <h3 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter text-black dark:text-white mb-4">{cat.label}</h3>
+                        <p className="text-sm sm:text-lg text-gray-400 dark:text-zinc-600 font-medium max-w-xl text-balance">{cat.desc}</p>
+                      </div>
                     </div>
 
-                    {/* Projects List - Split View for each */}
-                    <div className="space-y-48 sm:space-y-64">
+                    {/* Projects List - Refined Split View */}
+                    <div className="space-y-32 sm:space-y-48">
                       {filteredProjects.map((project, index) => (
-                        <div key={project.id} className={`flex flex-col lg:flex-row gap-16 lg:gap-24 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+                        <div key={project.id} className={`flex flex-col lg:flex-row gap-8 lg:gap-16 items-start ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
 
-                          {/* Text Content - Centered & Larger */}
-                          <div className="lg:w-1/2 flex flex-col items-center text-center lg:sticky lg:top-32 px-4 sm:px-0">
-                            <span className="flex items-center gap-3 mb-8">
-                              <span className="w-2 h-2 rounded-full bg-brand-purple animate-pulse"></span>
-                              <span className="text-[10px] text-zinc-400 font-black tracking-[0.4em] uppercase">ID: {project.id.toUpperCase()}</span>
+                          {/* Text Content - Left Aligned */}
+                          <div className="lg:w-2/5 flex flex-col items-start text-left px-4 sm:px-0">
+                            <span className="flex items-center gap-3 mb-6">
+                              <span className="w-1.5 h-1.5 rounded-full bg-brand-purple animate-pulse"></span>
+                              <span className="text-[9px] text-zinc-400 font-black tracking-[0.4em] uppercase">ID: {project.id.toUpperCase()}</span>
                             </span>
 
-                            <h4 className="text-6xl sm:text-7xl md:text-9xl font-bold text-black dark:text-white mb-10 tracking-tighter leading-[0.9]">
+                            <h4 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black dark:text-white mb-6 tracking-tighter leading-tight">
                               {project.client}
                             </h4>
 
-                            <p className="text-2xl sm:text-3xl md:text-4xl text-zinc-600 dark:text-zinc-400 font-medium leading-tight mb-12 text-balance max-w-2xl">
+                            <p className="text-base sm:text-lg md:text-xl text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed mb-8 text-balance max-w-lg">
                               {project.description}
                             </p>
 
-                            <div className="flex flex-wrap justify-center gap-3 mb-16">
+                            <div className="flex flex-wrap justify-start gap-2 mb-10">
                               {project.techStack?.map((tech, i) => (
-                                <span key={i} className="px-5 py-2.5 rounded-full bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 text-[11px] sm:text-[12px] font-black uppercase tracking-widest text-zinc-500">
+                                <span key={i} className="px-4 py-1.5 rounded-full bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-zinc-500">
                                   {tech}
                                 </span>
                               ))}
@@ -222,16 +224,16 @@ export const Work: React.FC = () => {
                               href={project.url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="group/btn flex items-center gap-5 px-10 py-6 rounded-full bg-black dark:bg-white text-white dark:text-black hover:bg-brand-purple dark:hover:bg-brand-purple hover:text-white dark:hover:text-white transition-all shadow-xl hover:scale-105 active:scale-95"
+                              className="group/btn flex items-center gap-4 px-8 py-4 rounded-full bg-black dark:bg-white text-white dark:text-black hover:bg-brand-purple dark:hover:bg-brand-purple hover:text-white dark:hover:text-white transition-all shadow-lg hover:scale-105 active:scale-95"
                             >
-                              <span className="text-[12px] font-black uppercase tracking-[0.3em]">Launch System</span>
-                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
+                              <span className="text-[11px] font-black uppercase tracking-[0.25em]">Launch System</span>
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
                             </a>
                           </div>
 
-                          {/* Preview Card - Aspect 4:5 (Matching AI Cards) */}
-                          <div className="lg:w-1/2 w-full px-0 sm:px-0 flex justify-center perspective-1000">
-                            <div className="w-full max-w-[600px] aspect-[4/5] sticky top-24 shadow-2xl rounded-[2rem] sm:rounded-[2.5rem] bg-zinc-900 overflow-hidden border border-white/5 relative transform hover:scale-[1.02] transition-transform duration-500">
+                          {/* Preview Card - Bigger & Screen-Friendly Ratio */}
+                          <div className="lg:w-3/5 w-full flex justify-center perspective-1000">
+                            <div className="w-full aspect-video shadow-2xl rounded-[1.5rem] sm:rounded-[2rem] bg-zinc-900 overflow-hidden border border-white/5 relative transform hover:scale-[1.01] transition-transform duration-500">
                               {project.url ? (
                                 <WebsiteCard url={project.url} title={project.client} />
                               ) : (
@@ -240,9 +242,9 @@ export const Work: React.FC = () => {
                                 </div>
                               )}
 
-                              {/* Mobile/Res indicator overlay since it's vertical now */}
+                              {/* Mobile/Res indicator overlay */}
                               <div className="absolute top-4 right-4 z-30 px-3 py-1 bg-black/50 backdrop-blur rounded-full border border-white/10 hidden sm:block">
-                                <span className="text-[9px] font-mono text-zinc-400">VIEWPORT_MOBILE_OPTIMIZED</span>
+                                <span className="text-[9px] font-mono text-zinc-400">REMOTE_ACCESS_ACTIVE</span>
                               </div>
                             </div>
                           </div>
