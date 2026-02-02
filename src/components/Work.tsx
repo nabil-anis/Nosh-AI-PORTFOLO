@@ -38,7 +38,7 @@ const ProjectCTACard: React.FC = () => {
   return (
     <motion.div
       whileHover={{ y: -8 }}
-      className="min-w-[300px] sm:min-w-[480px] aspect-[4/5] rounded-[2.5rem] sm:rounded-[3.5rem] bg-zinc-50 dark:bg-[#050505] border border-black/5 dark:border-white/5 hover:border-black/10 dark:hover:border-white/10 hover:shadow-[0_0_60px_15px_rgba(255,0,255,0.15)] flex flex-col justify-between p-10 sm:p-14 transition-all duration-700 relative overflow-hidden group/cta cursor-default shadow-sm"
+      className="min-w-[300px] sm:min-w-[480px] shrink-0 aspect-[4/5] rounded-[2.5rem] sm:rounded-[3.5rem] bg-zinc-50 dark:bg-[#050505] border border-black/5 dark:border-white/5 hover:border-black/10 dark:hover:border-white/10 hover:shadow-[0_0_60px_15px_rgba(255,0,255,0.15)] flex flex-col justify-between p-10 sm:p-14 transition-all duration-700 relative overflow-hidden group/cta cursor-default shadow-sm"
     >
       <div className="relative z-10 flex flex-col h-full items-start">
         <div className="flex justify-between items-start w-full mb-6">
@@ -300,7 +300,7 @@ export const Work: React.FC = () => {
                               key={project.id}
                               whileHover={{ y: -10 }}
                               onClick={() => setSelected(project)}
-                              className="min-w-[300px] sm:min-w-[480px] aspect-[4/5] rounded-[2.5rem] sm:rounded-[3.5rem] bg-zinc-100 dark:bg-zinc-900 border border-black/5 dark:border-white/5 hover:border-black/10 dark:hover:border-white/10 hover:shadow-[0_0_60px_15px_rgba(255,0,255,0.15)] overflow-hidden relative group shadow-sm transition-all duration-700 cursor-pointer snap-center"
+                              className="min-w-[300px] sm:min-w-[480px] shrink-0 aspect-[4/5] rounded-[2.5rem] sm:rounded-[3.5rem] bg-zinc-100 dark:bg-zinc-900 border border-black/5 dark:border-white/5 hover:border-black/10 dark:hover:border-white/10 hover:shadow-[0_0_60px_15px_rgba(255,0,255,0.15)] overflow-hidden relative group shadow-sm transition-all duration-700 cursor-pointer snap-center"
                             >
                               <div className="absolute inset-0">
                                 {project.media?.[0]?.type === 'video' ? (
