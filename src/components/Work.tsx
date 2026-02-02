@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PROJECTS } from '../constants.ts';
 import { Project } from '../types.ts';
-import { WebsitePreview } from './WebsitePreview.tsx';
+import { WebsiteCard } from './WebsiteCard.tsx';
 
 const SkeletonProjectCard: React.FC = () => (
   <div className="min-w-[300px] sm:min-w-[480px] aspect-[4/5] rounded-[2.5rem] sm:rounded-[3.5rem] bg-black/[0.03] dark:bg-white/[0.03] border border-black/[0.05] dark:border-white/[0.05] relative overflow-hidden">
@@ -181,57 +181,72 @@ export const Work: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.6 }}
-                    className="group/category min-h-[80vh] flex flex-col lg:flex-row gap-12 lg:gap-24"
+                    className="group/category min-h-[80vh] flex flex-col gap-24 sm:gap-32"
                   >
-                    {/* Left Column: Text Content */}
-                    <div className="lg:w-1/3 flex flex-col justify-center text-left order-2 lg:order-1">
-                      <p className="text-brand-purple text-[9px] sm:text-[10px] font-black tracking-[0.5em] uppercase mb-6">{cat.tech}</p>
-                      <h3 className="text-5xl sm:text-7xl font-bold tracking-tighter text-black dark:text-white mb-8 leading-[0.9]">{cat.label}</h3>
-                      <p className="text-sm sm:text-lg text-gray-400 dark:text-zinc-600 font-medium leading-relaxed mb-12 text-balance">{cat.desc}</p>
+                    {/* Category Header - Full Width & Centered */}
+                    <div className="w-full text-center flex flex-col items-center px-4">
+                      <p className="text-brand-purple text-[10px] sm:text-[11px] font-black tracking-[0.6em] uppercase mb-6">{cat.tech}</p>
+                      <h3 className="text-6xl sm:text-8xl md:text-[10vw] font-bold tracking-tighter text-black dark:text-white mb-8 leading-[0.85]">{cat.label}</h3>
+                      <p className="text-lg sm:text-2xl text-gray-400 dark:text-zinc-500 font-medium leading-relaxed max-w-3xl text-balance">{cat.desc}</p>
+                    </div>
 
-                      {/* Website Navigation Controls */}
-                      <div className="space-y-12">
-                        {filteredProjects.map((project) => (
-                          <div key={project.id} className="group/item cursor-default">
-                            <h4 className="text-xl sm:text-2xl font-bold text-black dark:text-white mb-2">{project.client}</h4>
-                            <p className="text-xs sm:text-sm text-gray-500 mb-4">{project.scope}</p>
-                            <p className="text-xs text-zinc-500 italic max-w-sm mb-6">{project.description}</p>
+                    {/* Projects List - Split View for each */}
+                    <div className="space-y-48 sm:space-y-64">
+                      {filteredProjects.map((project, index) => (
+                        <div key={project.id} className={`flex flex-col lg:flex-row gap-16 lg:gap-24 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
 
-                            {/* Tech Stack Pills */}
-                            <div className="flex flex-wrap gap-2 mb-6">
+                          {/* Text Content - Centered & Larger */}
+                          <div className="lg:w-1/2 flex flex-col items-center text-center lg:sticky lg:top-32 px-4 sm:px-0">
+                            <span className="flex items-center gap-3 mb-8">
+                              <span className="w-2 h-2 rounded-full bg-brand-purple animate-pulse"></span>
+                              <span className="text-[10px] text-zinc-400 font-black tracking-[0.4em] uppercase">ID: {project.id.toUpperCase()}</span>
+                            </span>
+
+                            <h4 className="text-6xl sm:text-7xl md:text-9xl font-bold text-black dark:text-white mb-10 tracking-tighter leading-[0.9]">
+                              {project.client}
+                            </h4>
+
+                            <p className="text-2xl sm:text-3xl md:text-4xl text-zinc-600 dark:text-zinc-400 font-medium leading-tight mb-12 text-balance max-w-2xl">
+                              {project.description}
+                            </p>
+
+                            <div className="flex flex-wrap justify-center gap-3 mb-16">
                               {project.techStack?.map((tech, i) => (
-                                <span key={i} className="px-3 py-1 rounded-md bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 text-[9px] font-bold uppercase tracking-wider text-zinc-500">
+                                <span key={i} className="px-5 py-2.5 rounded-full bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 text-[11px] sm:text-[12px] font-black uppercase tracking-widest text-zinc-500">
                                   {tech}
                                 </span>
                               ))}
                             </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
 
-                    {/* Right Column: Browser Previews (Stacked/Scrollable or just one?) 
-                        Let's render them as a vertical stack or tabs? user said "make an iframe and the user can view the whole website" 
-                        The layout image suggests one big preview. Let's make it so clicking the item on the left scrolls the right, or we just stack them.
-                        Actually, let's map them.
-                    */}
-                    <div className="lg:w-2/3 order-1 lg:order-2 space-y-24">
-                      {filteredProjects.map((project) => (
-                        <div key={project.id} className="space-y-6">
-                          {/* Mobile Title for context if stacked */}
-                          <div className="lg:hidden">
-                            <h4 className="text-2xl font-bold">{project.client}</h4>
+                            <a
+                              href={project.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="group/btn flex items-center gap-5 px-10 py-6 rounded-full bg-black dark:bg-white text-white dark:text-black hover:bg-brand-purple dark:hover:bg-brand-purple hover:text-white dark:hover:text-white transition-all shadow-xl hover:scale-105 active:scale-95"
+                            >
+                              <span className="text-[12px] font-black uppercase tracking-[0.3em]">Launch System</span>
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
+                            </a>
                           </div>
 
-                          <div className="w-full aspect-[16/10] sm:aspect-[16/9] lg:h-[600px]">
-                            {project.url ? (
-                              <WebsitePreview url={project.url} title={project.client} />
-                            ) : (
-                              <div className="w-full h-full bg-zinc-900 rounded-2xl flex items-center justify-center border border-white/10">
-                                <p className="text-zinc-500 font-mono text-xs">NO_PREVIEW_URL_AVAILABLE</p>
+                          {/* Preview Card - Aspect 4:5 (Matching AI Cards) */}
+                          <div className="lg:w-1/2 w-full px-0 sm:px-0 flex justify-center perspective-1000">
+                            <div className="w-full max-w-[600px] aspect-[4/5] sticky top-24 shadow-2xl rounded-[2rem] sm:rounded-[2.5rem] bg-zinc-900 overflow-hidden border border-white/5 relative transform hover:scale-[1.02] transition-transform duration-500">
+                              {project.url ? (
+                                <WebsiteCard url={project.url} title={project.client} />
+                              ) : (
+                                <div className="w-full h-full bg-zinc-900 flex items-center justify-center">
+                                  <p className="text-zinc-500 font-mono text-xs">NO_PREVIEW_URL_AVAILABLE</p>
+                                </div>
+                              )}
+
+                              {/* Mobile/Res indicator overlay since it's vertical now */}
+                              <div className="absolute top-4 right-4 z-30 px-3 py-1 bg-black/50 backdrop-blur rounded-full border border-white/10 hidden sm:block">
+                                <span className="text-[9px] font-mono text-zinc-400">VIEWPORT_MOBILE_OPTIMIZED</span>
                               </div>
-                            )}
+                            </div>
                           </div>
+
                         </div>
                       ))}
                     </div>

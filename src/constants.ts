@@ -60,6 +60,18 @@ export const PROJECTS: Project[] = [
     url: 'https://nosh.ai/lab/terminal',
     techStack: ['TypeScript', 'Next.js', 'PostgreSQL']
   },
+  {
+    id: 'velocity-dash-x',
+    client: 'Hyperion Systems',
+    scope: 'Real-Time Analytics Grid',
+    description: 'A dedicated data visualization environment for monitoring distributed server clusters. Designed for immediate readability and zero cognitive load during crisis management.',
+    category: 'Websites',
+    media: [
+      { type: 'image', src: '/assets/grid-system.jpg' }
+    ],
+    url: 'https://nosh.ai/lab/velocity',
+    techStack: ['Vue.js', 'D3.js', 'Firebase']
+  },
 
   // Chatbots
   {
