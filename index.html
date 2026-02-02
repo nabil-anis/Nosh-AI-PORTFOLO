@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Nabil | Builder of Systems</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              purple: '#B153D7',
+              pink: '#FF00FF',
+            },
+            apple: {
+              gray: { 50: '#f5f5f7', 100: '#e8e8ed', 200: '#d2d2d7', 300: '#86868b', 400: '#424245', 500: '#1d1d1f' }
+            }
+          },
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          animation: {
+            'shimmer': 'shimmer 2s infinite linear',
+            'float': 'float 15s ease-in-out infinite',
+          },
+          keyframes: {
+            shimmer: {
+              '0%': { transform: 'translateX(-100%)' },
+              '100%': { transform: 'translateX(100%)' }
+            },
+            float: {
+              '0%, 100%': { transform: 'translate(0, 0)' },
+              '50%': { transform: 'translate(-20px, 30px)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root { --bg-color: #ffffff; --text-color: #1d1d1f; }
+    .dark { --bg-color: #000000; --text-color: #f5f5f7; }
+    body { background-color: var(--bg-color); color: var(--text-color); transition: background-color 0.5s ease; overflow-x: hidden; }
+    .glass { background: rgba(255, 255, 255, 0.72); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); }
+    .dark .glass { background: rgba(0, 0, 0, 0.72); }
+    ::-webkit-scrollbar { display: none; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    
+    .bg-gradient-brand {
+      background: linear-gradient(135deg, #B153D7, #FF00FF);
+    }
+
+    .ambient-light {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(177, 83, 215, 0.1) 0%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .ambient-light-pink {
+      background: radial-gradient(circle, rgba(255, 0, 255, 0.08) 0%, transparent 70%);
+    }
+  </style>
+
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "30-minutes-meeting", {origin:"https://app.cal.com"});
+    Cal.ns["30-minutes-meeting"]("ui", {"hideEventTypeDetails":true,"layout":"month_view"});
+  </script>
+
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.3.1",
+    "react/": "https://esm.sh/react@18.3.1/",
+    "react-dom": "https://esm.sh/react-dom@18.3.1",
+    "react-dom/": "https://esm.sh/react-dom@18.3.1/",
+    "framer-motion": "https://esm.sh/framer-motion@11.11.17?external=react,react-dom",
+    "@google/genai": "https://esm.sh/@google/genai",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^4.3.4",
+    "vite": "https://esm.sh/vite@^6.0.3"
+  }
+}
+</script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="./index.tsx"></script>
+</body>
+</html>
