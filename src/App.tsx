@@ -68,20 +68,17 @@ const App: React.FC = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 items-center gap-12">
           {/* Left Column: Stylized Logo Stacked above Text */}
           <div className="flex flex-col items-center md:items-start gap-1">
-            <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center">
+            <a
+              href="https://noshaiautomation.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center hover:scale-110 transition-transform active:scale-95 transition-all"
+            >
               <img
                 src="/nosh-logo.png"
                 alt="NOSH AI"
                 className="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(177,83,215,0.2)]"
               />
-            </div>
-            <a
-              href="https://noshaiautomation.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-2xl font-black tracking-tighter text-black dark:text-white uppercase hover:text-brand-purple transition-colors cursor-pointer"
-            >
-              NOSH.
             </a>
           </div>
 
