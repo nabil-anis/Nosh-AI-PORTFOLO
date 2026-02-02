@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PROJECTS } from '../constants.ts';
 import { Project } from '../types.ts';
+import { WebsitePreview } from './WebsitePreview.tsx';
 
 const SkeletonProjectCard: React.FC = () => (
   <div className="min-w-[300px] sm:min-w-[480px] aspect-[4/5] rounded-[2.5rem] sm:rounded-[3.5rem] bg-black/[0.03] dark:bg-white/[0.03] border border-black/[0.05] dark:border-white/[0.05] relative overflow-hidden">
@@ -35,7 +36,7 @@ const ProjectCTACard: React.FC = () => {
   }, []);
 
   return (
-    <motion.div 
+    <motion.div
       whileHover={{ y: -8 }}
       className="min-w-[300px] sm:min-w-[480px] aspect-[4/5] rounded-[2.5rem] sm:rounded-[3.5rem] bg-zinc-50 dark:bg-[#050505] border border-black/5 dark:border-white/5 hover:border-black/10 dark:hover:border-white/10 hover:shadow-[0_0_60px_15px_rgba(255,0,255,0.15)] flex flex-col justify-between p-10 sm:p-14 transition-all duration-700 relative overflow-hidden group/cta cursor-default shadow-sm"
     >
@@ -53,10 +54,10 @@ const ProjectCTACard: React.FC = () => {
             A singular problem <br />
             <span className="italic text-zinc-300 dark:text-zinc-700">requires a singular solution.</span>
           </h4>
-          
+
           <div className="relative min-h-[4rem] flex flex-col justify-start text-left">
             <AnimatePresence mode="wait">
-              <motion.div 
+              <motion.div
                 key={jokeIndex}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -76,13 +77,13 @@ const ProjectCTACard: React.FC = () => {
         </div>
 
         <div className="mt-8 w-full">
-          <button 
+          <button
             data-cal-link="nosh-ai-automation/30-minutes-meeting"
             className="w-full flex items-center justify-center gap-4 py-6 sm:py-7 rounded-[2rem] sm:rounded-[2.5rem] bg-black dark:bg-white text-white dark:text-black text-[10px] sm:text-[12px] font-black uppercase tracking-[0.3em] hover:bg-brand-purple dark:hover:bg-brand-purple hover:text-white dark:hover:text-white transition-all shadow-xl active:scale-95 border-none"
           >
             Book a Consultation
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
             </svg>
           </button>
         </div>
@@ -111,8 +112,8 @@ export const Work: React.FC = () => {
   ];
 
   const filterOptions = ['All', ...categories.map(c => c.id)];
-  const displayedCategories = activeFilter === 'All' 
-    ? categories 
+  const displayedCategories = activeFilter === 'All'
+    ? categories
     : categories.filter(c => c.id === activeFilter);
 
   const scroll = (id: string, direction: 'left' | 'right') => {
@@ -126,7 +127,7 @@ export const Work: React.FC = () => {
   return (
     <section className="py-24 sm:py-40 px-6 bg-white dark:bg-black min-h-screen relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -151,14 +152,13 @@ export const Work: React.FC = () => {
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-4 sm:px-6 py-2 rounded-full text-[8px] sm:text-[10px] font-black uppercase tracking-widest transition-all relative whitespace-nowrap ${
-                  activeFilter === filter ? 'text-white' : 'text-gray-400 hover:text-black dark:hover:text-white'
-                }`}
+                className={`px-4 sm:px-6 py-2 rounded-full text-[8px] sm:text-[10px] font-black uppercase tracking-widest transition-all relative whitespace-nowrap ${activeFilter === filter ? 'text-white' : 'text-gray-400 hover:text-black dark:hover:text-white'
+                  }`}
               >
                 {activeFilter === filter && (
-                  <motion.div 
-                    layoutId="active-pill" 
-                    className="absolute inset-0 bg-brand-purple rounded-full z-0 shadow-lg" 
+                  <motion.div
+                    layoutId="active-pill"
+                    className="absolute inset-0 bg-brand-purple rounded-full z-0 shadow-lg"
                   />
                 )}
                 <span className="relative z-10">{filter}</span>
@@ -172,9 +172,75 @@ export const Work: React.FC = () => {
             {displayedCategories.map((cat) => {
               const filteredProjects = PROJECTS.filter(p => p.category === cat.id);
               if (filteredProjects.length === 0) return null;
-              
+
+              if (cat.id === 'Websites') {
+                return (
+                  <motion.div
+                    key={cat.id}
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.6 }}
+                    className="group/category min-h-[80vh] flex flex-col lg:flex-row gap-12 lg:gap-24"
+                  >
+                    {/* Left Column: Text Content */}
+                    <div className="lg:w-1/3 flex flex-col justify-center text-left order-2 lg:order-1">
+                      <p className="text-brand-purple text-[9px] sm:text-[10px] font-black tracking-[0.5em] uppercase mb-6">{cat.tech}</p>
+                      <h3 className="text-5xl sm:text-7xl font-bold tracking-tighter text-black dark:text-white mb-8 leading-[0.9]">{cat.label}</h3>
+                      <p className="text-sm sm:text-lg text-gray-400 dark:text-zinc-600 font-medium leading-relaxed mb-12 text-balance">{cat.desc}</p>
+
+                      {/* Website Navigation Controls */}
+                      <div className="space-y-12">
+                        {filteredProjects.map((project) => (
+                          <div key={project.id} className="group/item cursor-default">
+                            <h4 className="text-xl sm:text-2xl font-bold text-black dark:text-white mb-2">{project.client}</h4>
+                            <p className="text-xs sm:text-sm text-gray-500 mb-4">{project.scope}</p>
+                            <p className="text-xs text-zinc-500 italic max-w-sm mb-6">{project.description}</p>
+
+                            {/* Tech Stack Pills */}
+                            <div className="flex flex-wrap gap-2 mb-6">
+                              {project.techStack?.map((tech, i) => (
+                                <span key={i} className="px-3 py-1 rounded-md bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 text-[9px] font-bold uppercase tracking-wider text-zinc-500">
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Right Column: Browser Previews (Stacked/Scrollable or just one?) 
+                        Let's render them as a vertical stack or tabs? user said "make an iframe and the user can view the whole website" 
+                        The layout image suggests one big preview. Let's make it so clicking the item on the left scrolls the right, or we just stack them.
+                        Actually, let's map them.
+                    */}
+                    <div className="lg:w-2/3 order-1 lg:order-2 space-y-24">
+                      {filteredProjects.map((project) => (
+                        <div key={project.id} className="space-y-6">
+                          {/* Mobile Title for context if stacked */}
+                          <div className="lg:hidden">
+                            <h4 className="text-2xl font-bold">{project.client}</h4>
+                          </div>
+
+                          <div className="w-full aspect-[16/10] sm:aspect-[16/9] lg:h-[600px]">
+                            {project.url ? (
+                              <WebsitePreview url={project.url} title={project.client} />
+                            ) : (
+                              <div className="w-full h-full bg-zinc-900 rounded-2xl flex items-center justify-center border border-white/10">
+                                <p className="text-zinc-500 font-mono text-xs">NO_PREVIEW_URL_AVAILABLE</p>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                );
+              }
+
               return (
-                <motion.div 
+                <motion.div
                   key={cat.id}
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -192,21 +258,21 @@ export const Work: React.FC = () => {
 
                   <div className="relative group/scroll">
                     <div className="absolute top-1/2 -translate-y-1/2 left-[-20px] sm:left-[-40px] right-[-20px] sm:right-[-40px] flex justify-between z-30 pointer-events-none">
-                      <button 
+                      <button
                         onClick={() => scroll(cat.id, 'left')}
                         className="w-10 h-10 sm:w-16 sm:h-16 rounded-full glass border border-black/10 dark:border-white/10 flex items-center justify-center hover:bg-brand-purple hover:text-white transition-all pointer-events-auto shadow-2xl active:scale-90"
                       >
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="15 18 9 12 15 6"/></svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="15 18 9 12 15 6" /></svg>
                       </button>
-                      <button 
+                      <button
                         onClick={() => scroll(cat.id, 'right')}
                         className="w-10 h-10 sm:w-16 sm:h-16 rounded-full glass border border-black/10 dark:border-white/10 flex items-center justify-center hover:bg-brand-purple hover:text-white transition-all pointer-events-auto shadow-2xl active:scale-90"
                       >
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="9 18 15 12 9 6"/></svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="9 18 15 12 9 6" /></svg>
                       </button>
                     </div>
 
-                    <div 
+                    <div
                       ref={el => { scrollRefs.current[cat.id] = el; }}
                       className="flex gap-6 sm:gap-10 overflow-x-auto pb-16 sm:pb-24 no-scrollbar px-2 snap-x"
                     >
@@ -251,15 +317,15 @@ export const Work: React.FC = () => {
 
       <AnimatePresence>
         {selected && (
-          <motion.div 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[200] flex items-center justify-center bg-black/95 backdrop-blur-3xl p-4 md:p-8 overflow-hidden"
             onClick={() => setSelected(null)}
           >
-            <motion.div 
-              initial={{ scale: 0.95, opacity: 0, y: 50 }} 
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 50 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 50 }}
               transition={{ type: "spring", damping: 30, stiffness: 250 }}
@@ -267,69 +333,69 @@ export const Work: React.FC = () => {
               onClick={e => e.stopPropagation()}
             >
               <div className="w-full h-[50vh] sm:h-[95vh] bg-[#1A1A1A] relative shrink-0 border-b border-white/5 overflow-hidden">
-                 {selected.media?.[0]?.type === 'video' ? (
-                   <video src={selected.media[0].src} autoPlay muted loop className="w-full h-full object-cover" />
-                 ) : (
-                   <img src={selected.media?.[0]?.src} className="w-full h-full object-cover" alt="" />
-                 )}
-                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent opacity-60" />
-                 
-                 <button 
+                {selected.media?.[0]?.type === 'video' ? (
+                  <video src={selected.media[0].src} autoPlay muted loop className="w-full h-full object-cover" />
+                ) : (
+                  <img src={selected.media?.[0]?.src} className="w-full h-full object-cover" alt="" />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent opacity-60" />
+
+                <button
                   onClick={() => setSelected(null)}
                   className="absolute top-6 right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/25 backdrop-blur-md flex items-center justify-center text-white transition-all active:scale-90 z-20"
-                 >
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                 </button>
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+                </button>
               </div>
 
               <div className="p-8 sm:p-14 bg-[#0A0A0A] flex flex-col gap-10 sm:gap-16 items-start">
-                 <div className="flex flex-col md:flex-row justify-between items-start w-full gap-8">
-                   <div className="space-y-4 text-left">
-                     <span className="text-brand-purple text-[10px] sm:text-[11px] font-black tracking-[0.5em] uppercase block">
-                        SYSTEM SUMMARY
-                     </span>
-                     <h3 className="text-3xl sm:text-7xl font-bold tracking-tighter text-white leading-none">
-                        {selected.scope}
-                     </h3>
-                     <p className="text-xs sm:text-base font-bold text-zinc-500 uppercase tracking-widest italic text-balance">
-                        {selected.client}
-                     </p>
-                   </div>
-
-                   <div className="flex gap-4 md:pt-4 shrink-0">
-                     <div className="px-4 py-3 sm:px-6 sm:py-4 rounded-xl bg-zinc-900/50 border border-white/5 text-center min-w-[100px] sm:min-w-[130px]">
-                        <p className="text-[7px] sm:text-[9px] font-black text-zinc-500 uppercase tracking-widest mb-1 opacity-70">EFFICIENCY</p>
-                        <p className="text-lg sm:text-2xl font-bold text-white tracking-tighter">99.9%</p>
-                     </div>
-                     <div className="px-4 py-3 sm:px-6 sm:py-4 rounded-xl bg-zinc-900/50 border border-white/5 text-center min-w-[120px] sm:min-w-[150px]">
-                        <p className="text-[7px] sm:text-[9px] font-black text-zinc-500 uppercase tracking-widest mb-1 opacity-70">REGISTRY</p>
-                        <p className="text-lg sm:text-2xl font-bold text-brand-purple tracking-tighter uppercase italic">2026_CORE</p>
-                     </div>
-                   </div>
-                 </div>
-
-                 <div className="space-y-6 sm:space-y-10 text-left w-full">
-                    <div className="space-y-4">
-                       <p className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] text-zinc-700">EXECUTIVE BRIEFING</p>
-                       <div className="h-[1px] w-full bg-white/5" />
-                    </div>
-                    <p className="text-lg sm:text-3xl text-zinc-400 font-medium leading-snug sm:leading-[1.35] max-w-4xl text-balance">
-                       {selected.description}
+                <div className="flex flex-col md:flex-row justify-between items-start w-full gap-8">
+                  <div className="space-y-4 text-left">
+                    <span className="text-brand-purple text-[10px] sm:text-[11px] font-black tracking-[0.5em] uppercase block">
+                      SYSTEM SUMMARY
+                    </span>
+                    <h3 className="text-3xl sm:text-7xl font-bold tracking-tighter text-white leading-none">
+                      {selected.scope}
+                    </h3>
+                    <p className="text-xs sm:text-base font-bold text-zinc-500 uppercase tracking-widest italic text-balance">
+                      {selected.client}
                     </p>
-                 </div>
+                  </div>
 
-                 <div className="flex flex-col md:flex-row items-center gap-4 sm:gap-6 pt-10 pb-12 border-t border-white/5 w-full">
-                    <button 
-                      onClick={() => setSelected(null)}
-                      className="w-full md:w-auto px-10 sm:px-12 py-4 sm:py-5 rounded-full bg-white text-black text-[10px] sm:text-[11px] font-black uppercase tracking-[0.3em] hover:bg-brand-purple hover:text-white transition-all shadow-xl active:scale-95"
-                    >
-                      CLOSE_BRIEFING
-                    </button>
-                    
-                    <div className="w-full md:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full border border-white/5 text-zinc-700 text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-center bg-zinc-950/30">
-                       SYSTEM-ID: {selected.id.toUpperCase()}
+                  <div className="flex gap-4 md:pt-4 shrink-0">
+                    <div className="px-4 py-3 sm:px-6 sm:py-4 rounded-xl bg-zinc-900/50 border border-white/5 text-center min-w-[100px] sm:min-w-[130px]">
+                      <p className="text-[7px] sm:text-[9px] font-black text-zinc-500 uppercase tracking-widest mb-1 opacity-70">EFFICIENCY</p>
+                      <p className="text-lg sm:text-2xl font-bold text-white tracking-tighter">99.9%</p>
                     </div>
-                 </div>
+                    <div className="px-4 py-3 sm:px-6 sm:py-4 rounded-xl bg-zinc-900/50 border border-white/5 text-center min-w-[120px] sm:min-w-[150px]">
+                      <p className="text-[7px] sm:text-[9px] font-black text-zinc-500 uppercase tracking-widest mb-1 opacity-70">REGISTRY</p>
+                      <p className="text-lg sm:text-2xl font-bold text-brand-purple tracking-tighter uppercase italic">2026_CORE</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-6 sm:space-y-10 text-left w-full">
+                  <div className="space-y-4">
+                    <p className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] text-zinc-700">EXECUTIVE BRIEFING</p>
+                    <div className="h-[1px] w-full bg-white/5" />
+                  </div>
+                  <p className="text-lg sm:text-3xl text-zinc-400 font-medium leading-snug sm:leading-[1.35] max-w-4xl text-balance">
+                    {selected.description}
+                  </p>
+                </div>
+
+                <div className="flex flex-col md:flex-row items-center gap-4 sm:gap-6 pt-10 pb-12 border-t border-white/5 w-full">
+                  <button
+                    onClick={() => setSelected(null)}
+                    className="w-full md:w-auto px-10 sm:px-12 py-4 sm:py-5 rounded-full bg-white text-black text-[10px] sm:text-[11px] font-black uppercase tracking-[0.3em] hover:bg-brand-purple hover:text-white transition-all shadow-xl active:scale-95"
+                  >
+                    CLOSE_BRIEFING
+                  </button>
+
+                  <div className="w-full md:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full border border-white/5 text-zinc-700 text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-center bg-zinc-950/30">
+                    SYSTEM-ID: {selected.id.toUpperCase()}
+                  </div>
+                </div>
               </div>
             </motion.div>
           </motion.div>

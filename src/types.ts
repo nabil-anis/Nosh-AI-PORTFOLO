@@ -6,6 +6,8 @@ export interface Project {
   description: string;
   category: 'AI Automations' | 'Websites' | 'Chatbots' | 'Voice Agents';
   media: { type: 'image' | 'video'; src: string }[];
+  url?: string;
+  techStack?: string[];
 }
 
 export interface AtmosphereItem {

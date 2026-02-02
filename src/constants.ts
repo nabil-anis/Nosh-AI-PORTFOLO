@@ -44,7 +44,9 @@ export const PROJECTS: Project[] = [
     category: 'Websites',
     media: [
       { type: 'video', src: '/assets/binary-code.mp4' }
-    ]
+    ],
+    url: 'https://nosh.ai/lab/orchestrator',
+    techStack: ['React', 'Framer Motion', 'WebSockets', 'AI']
   },
   {
     id: 'minimal-store-2',
@@ -54,7 +56,9 @@ export const PROJECTS: Project[] = [
     category: 'Websites',
     media: [
       { type: 'image', src: '/assets/minimal-store.jpg' }
-    ]
+    ],
+    url: 'https://nosh.ai/lab/terminal',
+    techStack: ['TypeScript', 'Next.js', 'PostgreSQL']
   },
 
   // Chatbots
