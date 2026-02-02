@@ -8,7 +8,7 @@ import { Page } from './types.ts';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const App: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState<Page>(Page.Engine);
+  const [currentPage, setCurrentPage] = useState<Page>(Page.Work);
   const [isDark, setIsDark] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
 

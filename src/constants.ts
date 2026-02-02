@@ -124,9 +124,9 @@ export const WEBSITES: Website[] = [
 export const TEAM: TeamMember[] = [
   {
     id: 'lead',
-    name: 'Nabil',
-    role: 'Founder & Lead Architect',
-    bio: 'A builder, not a spectator. Nabil architects the primary logic gates and technical philosophy that drives NOSH.',
+    name: 'Founder',
+    role: 'Lead Architect',
+    bio: 'A builder, not a spectator. Architects the primary logic gates and technical philosophy that drives NOSH.',
     image: '/assets/team-lead.jpg'
   },
   {
