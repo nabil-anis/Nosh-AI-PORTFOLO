@@ -23,36 +23,36 @@ export const Engine: React.FC = () => {
 
   const services = [
     {
-      category: 'AI Automations',
-      catchy: 'Smart Logic Flows',
+      label: 'AI Automations',
+      title: 'Agentic Workflows',
       desc: 'Intelligent software agents that work for you 24/7, handling repetitive daily tasks automatically so you don\'t have to.',
       specs: ['Fast & Reliable', 'Smart Logic', 'Custom Data'],
       icon: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z'
     },
     {
-      category: 'Websites & Apps',
-      catchy: 'Modern Digital Engines',
+      label: 'Websites',
+      title: 'Performance Engines',
       desc: 'Beautiful, lightning-fast websites and apps designed to load instantly and look perfect on every screen.',
       specs: ['Modern Design', 'Fast Loading', 'Mobile Ready'],
       icon: 'M21 12H3m18 0a9 9 0 11-18 0 9 9 0 0118 0z'
     },
     {
-      category: 'AI Chatbots',
-      catchy: 'Intelligent Support',
+      label: 'Chatbots',
+      title: 'Cognitive Interfaces',
       desc: 'Smart assistants that talk to your customers, answer questions, and solve problems instantly, day or night.',
       specs: ['Instant Answers', 'Always Online', 'Smart Memory'],
       icon: 'M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z'
     },
     {
-      category: 'Voice AI',
-      catchy: 'Human-Like Voices',
+      label: 'Voice Agents',
+      title: 'Autonomous Tele-Infra',
       desc: 'Advanced voice systems that talk just like a person, perfect for answering calls and booking appointments without delay.',
       specs: ['Natural Voice', 'No Delay', 'Any Language'],
       icon: 'M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z'
     },
     {
-      category: 'System Design',
-      catchy: 'Digital Backbone',
+      label: 'System Design',
+      title: 'Custom Infrastructure',
       desc: 'Building the secure, powerful technology behind your business to keep everything running smoothly and reliably.',
       specs: ['Private & Secure', 'Scalable Power', 'Seamless Sync'],
       icon: 'M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4'
@@ -161,8 +161,8 @@ export const Engine: React.FC = () => {
 
               <div className="flex flex-col h-full relative z-10">
                 <div className="mb-8 sm:mb-10 text-left">
-                  <p className="text-black dark:text-white opacity-40 text-[8px] sm:text-[9px] font-black tracking-[0.4em] uppercase mb-4">{service.catchy}</p>
-                  <h3 className="text-xl sm:text-2xl font-bold text-brand-purple mb-4 sm:mb-5 tracking-tight leading-tight group-hover:text-black dark:group-hover:text-white transition-colors">{service.category}</h3>
+                  <p className="text-brand-purple text-[8px] sm:text-[9px] font-black tracking-[0.4em] uppercase mb-4">{service.label}</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-black dark:text-white mb-4 sm:mb-5 tracking-tight leading-tight group-hover:text-brand-purple transition-colors">{service.title}</h3>
                   <p className="text-xs sm:text-sm text-gray-500 dark:text-zinc-500 font-medium leading-relaxed mb-6 sm:mb-8">{service.desc}</p>
                 </div>
 
