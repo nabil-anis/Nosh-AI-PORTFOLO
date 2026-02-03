@@ -161,8 +161,8 @@ export const Engine: React.FC = () => {
 
               <div className="flex flex-col h-full relative z-10">
                 <div className="mb-8 sm:mb-10 text-left">
-                  <p className="text-brand-purple text-[8px] sm:text-[9px] font-black tracking-[0.4em] uppercase mb-4">{service.label}</p>
-                  <h3 className="text-xl sm:text-2xl font-bold text-black dark:text-white mb-4 sm:mb-5 tracking-tight leading-tight group-hover:text-brand-purple transition-colors">{service.title}</h3>
+                  <p className="text-black dark:text-white opacity-40 text-[8px] sm:text-[9px] font-black tracking-[0.4em] uppercase mb-4">{service.title}</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-brand-purple mb-4 sm:mb-5 tracking-tight leading-tight group-hover:text-black dark:group-hover:text-white transition-colors">{service.label}</h3>
                   <p className="text-xs sm:text-sm text-gray-500 dark:text-zinc-500 font-medium leading-relaxed mb-6 sm:mb-8">{service.desc}</p>
                 </div>
 

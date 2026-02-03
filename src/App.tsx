@@ -75,7 +75,7 @@ const App: React.FC = () => {
               className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center hover:scale-110 transition-transform active:scale-95 transition-all"
             >
               <img
-                src="/nosh-logo.png"
+                src="/nosh-logo.webp"
                 alt="NOSH AI"
                 className="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(177,83,215,0.2)]"
               />
