@@ -70,13 +70,13 @@ export const Engine: React.FC = () => {
       />
 
       <div className="max-w-7xl mx-auto z-10 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start mb-24 md:mb-48">
+        <div className="flex flex-col items-start mb-24 md:mb-48">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-7 xl:col-span-8 text-left"
+            className="w-full max-w-4xl text-left"
           >
             <span className="text-brand-purple text-[9px] sm:text-[10px] font-black tracking-[0.5em] uppercase mb-6 sm:mb-8 inline-block">Systems, Orchestrated.</span>
             <h2 className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tighter text-black dark:text-white leading-[0.9] mb-8 sm:mb-12">
@@ -86,59 +86,6 @@ export const Engine: React.FC = () => {
             <p className="text-lg sm:text-xl md:text-2xl text-gray-500 dark:text-gray-400 font-medium max-w-2xl leading-tight">
               Technical infrastructure for the next era. Premium AI ecosystems designed for absolute precision and <span className="text-brand-purple italic">zero noise.</span>
             </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-5 xl:col-span-4 flex justify-start lg:justify-end"
-          >
-            <div className="glass p-8 sm:p-10 rounded-[2.5rem] sm:rounded-[3rem] border border-black/[0.08] dark:border-white/[0.08] w-full max-w-[420px] space-y-6 sm:space-y-8 shadow-2xl relative overflow-hidden group">
-              <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-15 transition-opacity">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" className="text-brand-purple"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z" /></svg>
-              </div>
-
-              <div className="flex justify-between items-center border-b border-black/5 dark:border-white/5 pb-5 sm:pb-6">
-                <p className="text-[9px] sm:text-[10px] font-black tracking-widest uppercase text-black dark:text-white opacity-40">Core Tuning</p>
-                <div className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-brand-purple animate-pulse" />
-                  <span className="text-[8px] font-mono font-black text-gray-400 dark:text-zinc-600 uppercase tracking-tighter">{status}</span>
-                </div>
-              </div>
-
-              {[
-                { key: 'logic', label: 'Logic' },
-                { key: 'aesthetics', label: 'Visuals' },
-                { key: 'sarcasm', label: 'Restraint' }
-              ].map((p) => (
-                <div key={p.key} className="space-y-3 group/item">
-                  <div className="flex justify-between text-[10px] sm:text-[11px] font-bold">
-                    <span className="text-gray-500 dark:text-zinc-500 group-hover/item:text-brand-purple transition-colors uppercase tracking-widest">{p.label}</span>
-                    <span className="text-black dark:text-white font-mono">{params[p.key as keyof typeof params]}%</span>
-                  </div>
-                  <div className="relative h-1.5 bg-black/5 dark:bg-white/5 rounded-full overflow-hidden">
-                    <motion.div
-                      initial={false}
-                      animate={{ width: `${params[p.key as keyof typeof params]}%` }}
-                      className="absolute inset-y-0 left-0 bg-brand-purple opacity-40"
-                    />
-                    <input
-                      type="range"
-                      min="0" max="100"
-                      value={params[p.key as keyof typeof params]}
-                      onChange={(e) => setParams({ ...params, [p.key]: parseInt(e.target.value) })}
-                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-                    />
-                  </div>
-                </div>
-              ))}
-
-              <div className="pt-2 sm:pt-4 flex justify-start">
-                <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-[0.4em] text-gray-400 dark:text-zinc-700">Interface // v2.0.26</span>
-              </div>
-            </div>
           </motion.div>
         </div>
 

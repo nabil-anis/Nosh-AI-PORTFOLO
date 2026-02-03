@@ -135,11 +135,11 @@ export const Work: React.FC = () => {
         >
           <div className="flex items-center justify-start gap-4 mb-6 sm:mb-8">
             <div className="h-[1px] w-8 sm:w-12 bg-brand-purple hidden sm:block" />
-            <span className="text-brand-purple text-[9px] sm:text-[10px] font-black uppercase tracking-[0.6em]">System Portfolio</span>
+            <span className="text-brand-purple text-[9px] sm:text-[10px] font-black uppercase tracking-[0.6em]">logic in production</span>
           </div>
           <h2 className="text-5xl sm:text-7xl md:text-[8vw] font-bold tracking-tighter text-black dark:text-white mb-6 sm:mb-8 leading-[0.9]">
-            Logic, <br />
-            <span className="text-gray-200 dark:text-zinc-800 italic">In Production.</span>
+            NOSH AI, <br />
+            <span className="text-gray-200 dark:text-zinc-800 italic">PORTFOLIO.</span>
           </h2>
           <p className="text-lg sm:text-2xl md:text-3xl text-gray-500 dark:text-gray-400 font-medium leading-tight max-w-2xl text-balance">
             A curated selection of technical deployments optimized for scale and absolute precision.
