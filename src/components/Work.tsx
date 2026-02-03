@@ -106,7 +106,7 @@ export const Work: React.FC = () => {
 
   const categories = [
     { id: 'AI Automations', label: 'AI Automation', tech: 'Neural Workflows', desc: 'Eliminating manual bottlenecks through autonomous agentic logic.' },
-    { id: 'Websites', label: 'Websites & Apps', tech: 'Performance Interfaces', desc: 'High-speed digital platforms built for sub-second delivery.' },
+    { id: 'Websites', label: 'S.A.A.S (Websites & Apps)', tech: 'Performance Interfaces', desc: 'High-speed digital platforms built for sub-second delivery.' },
     { id: 'Chatbots', label: 'AI Chatbots', tech: 'Cognitive Agents', desc: 'Context-aware intelligence layers for 24/7 customer orchestration.' },
     { id: 'Voice Agents', label: 'Voice Agents', tech: 'Autonomous Voice', desc: 'Zero-latency vocal infrastructure for human-like tele-reasoning.' }
   ];
@@ -235,7 +235,7 @@ export const Work: React.FC = () => {
                           <div className="lg:w-3/5 w-full flex justify-center perspective-1000">
                             <div className="w-full aspect-video shadow-2xl rounded-[1.5rem] sm:rounded-[2rem] bg-zinc-900 overflow-hidden border border-white/5 relative transform hover:scale-[1.01] transition-transform duration-500">
                               {project.url ? (
-                                <WebsiteCard url={project.url} title={project.client} />
+                                <WebsiteCard url={project.url} title={project.client} isEmbeddable={project.isEmbeddable} />
                               ) : (
                                 <div className="w-full h-full bg-zinc-900 flex items-center justify-center">
                                   <p className="text-zinc-500 font-mono text-xs">NO_PREVIEW_URL_AVAILABLE</p>

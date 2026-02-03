@@ -7,6 +7,7 @@ export interface Project {
   category: 'AI Automations' | 'Websites' | 'Chatbots' | 'Voice Agents';
   media: { type: 'image' | 'video'; src: string }[];
   url?: string;
+  isEmbeddable?: boolean;
   techStack?: string[];
 }
 

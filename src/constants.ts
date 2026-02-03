@@ -49,16 +49,17 @@ export const PROJECTS: Project[] = [
     techStack: ['React', 'AI Orchestration', 'Node.js', 'PostgreSQL']
   },
   {
-    id: 'gavel-ai-hiring',
-    client: 'Gavel',
-    scope: 'AI-Powered Recruitment Interface',
-    description: 'An industry-leading AI recruitment engine that automates the initial interviewing phase. Designed to streamline talent acquisition by processing thousands of candidate signals into actionable hiring intelligence.',
+    id: 'construction-sales',
+    client: 'Apex Construction',
+    scope: 'AI-Driven Recruitment Hub',
+    description: 'A high-performance recruitment ecosystem for construction sales. Features automated candidate vetting via AI assistant interviews and a structured career growth interface for team orchestration.',
     category: 'Websites',
     media: [
       { type: 'image', src: '/assets/neural-interface.jpg' }
     ],
-    url: 'https://joingavel.com/',
-    techStack: ['TypeScript', 'Next.js', 'Neural Networks', 'AWS']
+    url: 'https://construction-tan-two.vercel.app/',
+    isEmbeddable: true,
+    techStack: ['Next.js', 'Tailwind CSS', 'AI Orchestration', 'Vercel']
   },
   {
     id: 'online-ebook-fair',
@@ -129,11 +130,11 @@ export const WEBSITES: Website[] = [
     techStack: ['React', 'AI Orchestration', 'Node.js']
   },
   {
-    id: 'gavel-ai-hiring',
-    name: 'Gavel',
-    description: 'AI-powered recruitment and interviewing engine.',
-    url: 'https://joingavel.com/',
-    techStack: ['TypeScript', 'Next.js', 'Neural Networks']
+    id: 'construction-sales',
+    name: 'Apex Construction',
+    description: 'AI-driven recruitment and sales training ecosystem.',
+    url: 'https://construction-tan-two.vercel.app/',
+    techStack: ['Next.js', 'Tailwind CSS', 'AI Orchestration']
   },
   {
     id: 'online-ebook-fair',

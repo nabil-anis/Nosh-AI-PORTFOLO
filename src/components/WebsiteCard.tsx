@@ -4,11 +4,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 interface WebsiteCardProps {
     url: string;
     title: string;
+    isEmbeddable?: boolean;
 }
 
 type Viewport = 'desktop' | 'tablet' | 'mobile';
 
-export const WebsiteCard: React.FC<WebsiteCardProps> = ({ url, title }) => {
+export const WebsiteCard: React.FC<WebsiteCardProps> = ({ url, title, isEmbeddable = true }) => {
     const [isActive, setIsActive] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -25,7 +26,7 @@ export const WebsiteCard: React.FC<WebsiteCardProps> = ({ url, title }) => {
                 'ESTABLISHING_TLS_TUNNEL...',
                 'MOUNTING_REMOTE_ASSETS...',
                 'STARTING_LIVE_STREAM...',
-                'SYSTEM_STABLE.'
+                isEmbeddable ? 'SYSTEM_STABLE.' : 'HANDSHAKE_COMPLETED.'
             ];
 
             let currentIndex = 0;
@@ -41,11 +42,11 @@ export const WebsiteCard: React.FC<WebsiteCardProps> = ({ url, title }) => {
                     clearInterval(interval);
                     setTimeout(() => setIsLoaded(true), 800);
                 }
-            }, 600); // 600ms per log line
+            }, 400); // Faster logs for better UX
 
             return () => clearInterval(interval);
         }
-    }, [isActive, isLoaded, url]);
+    }, [isActive, isLoaded, url, isEmbeddable]);
 
     return (
         <div className="w-full h-full rounded-[1.5rem] bg-[#0A0A0A] overflow-hidden border border-white/10 flex flex-col shadow-2xl relative group">
@@ -66,7 +67,6 @@ export const WebsiteCard: React.FC<WebsiteCardProps> = ({ url, title }) => {
                 </div>
 
                 <div className="flex gap-4">
-                    {/* Viewport Toggles (Visual Only for now) */}
                     <div className="hidden sm:flex rounded-md bg-[#1a1a1a] p-0.5">
                         <div className={`p-1 rounded ${viewport === 'desktop' ? 'bg-white/10 text-white' : 'text-zinc-600'}`}>
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
@@ -134,31 +134,56 @@ export const WebsiteCard: React.FC<WebsiteCardProps> = ({ url, title }) => {
                     )}
                 </AnimatePresence>
 
-                {/* Live Iframe - Only rendered when loaded to save resources, or we can render hidden */}
+                {/* Live Content */}
                 {isActive && isLoaded && (
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         className="w-full h-full bg-white relative"
                     >
-                        <iframe
-                            src={url}
-                            className="w-full h-full border-none"
-                            title={title}
-                        />
+                        {isEmbeddable ? (
+                            <iframe
+                                src={url}
+                                className="w-full h-full border-none"
+                                title={title}
+                            />
+                        ) : (
+                            <div className="w-full h-full bg-[#050505] flex flex-col items-center justify-center p-8 text-center relative">
+                                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
-                        {/* Launch Button Overlay */}
-                        <div className="absolute bottom-6 right-6">
-                            <a
-                                href={url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-2 px-5 py-2.5 rounded-md bg-zinc-900/90 border border-white/10 text-zinc-400 text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black hover:border-transparent transition-all backdrop-blur-md"
-                            >
-                                <span>Independent Instance</span>
-                                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
-                            </a>
-                        </div>
+                                <div className="w-16 h-16 rounded-full bg-zinc-900 border border-white/5 flex items-center justify-center mb-6 opacity-40">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-brand-purple"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                                </div>
+                                <h5 className="text-zinc-400 text-[10px] font-black uppercase tracking-[0.4em] mb-4">Remote Access Resticted</h5>
+                                <p className="text-zinc-600 text-xs font-medium max-w-xs leading-relaxed mb-8">
+                                    For security architecture reasons, this system cannot be proxied through an iframe. Initialize a direct connection to view the live deployment.
+                                </p>
+
+                                <a
+                                    href={url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="px-8 py-3 rounded-full bg-brand-purple text-white text-[10px] font-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg shadow-brand-purple/20"
+                                >
+                                    Egress to System
+                                </a>
+                            </div>
+                        )}
+
+                        {/* Launch Button Overlay - Only for embeddable sites to provide an escape */}
+                        {isEmbeddable && (
+                            <div className="absolute bottom-6 right-6">
+                                <a
+                                    href={url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-2 px-5 py-2.5 rounded-md bg-zinc-900/90 border border-white/10 text-zinc-400 text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black hover:border-transparent transition-all backdrop-blur-md"
+                                >
+                                    <span>Independent Instance</span>
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
+                                </a>
+                            </div>
+                        )}
                     </motion.div>
                 )}
             </div>
