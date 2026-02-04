@@ -8,6 +8,8 @@ export interface Project {
   media: { type: 'image' | 'video'; src: string }[];
   url?: string;
   isEmbeddable?: boolean;
+  efficiency?: string;
+  registry?: string;
   techStack?: string[];
 }
 

@@ -5,7 +5,7 @@ import { Project } from '../types.ts';
 import { WebsiteCard } from './WebsiteCard.tsx';
 
 const SkeletonProjectCard: React.FC = () => (
-  <div className="min-w-[300px] sm:min-w-[480px] aspect-[4/5] rounded-[2.5rem] sm:rounded-[3.5rem] bg-black/[0.03] dark:bg-white/[0.03] border border-black/[0.05] dark:border-white/[0.05] relative overflow-hidden">
+  <div className="min-w-[280px] sm:min-w-[380px] aspect-[4/3] rounded-[3rem] bg-black/[0.03] dark:bg-white/[0.03] border border-black/[0.05] dark:border-white/[0.05] relative overflow-hidden">
     <div className="absolute inset-0 z-10 animate-shimmer pointer-events-none">
       <div className="h-full w-full bg-gradient-to-r from-transparent via-white/[0.05] dark:via-white/[0.02] to-transparent" />
     </div>
@@ -38,10 +38,10 @@ const ProjectCTACard: React.FC = () => {
   return (
     <motion.div
       whileHover={{ y: -8 }}
-      className="min-w-[300px] sm:min-w-[480px] shrink-0 aspect-[4/5] rounded-[2.5rem] sm:rounded-[3.5rem] bg-zinc-50 dark:bg-[#050505] border border-black/5 dark:border-white/5 hover:border-black/10 dark:hover:border-white/10 hover:shadow-[0_0_60px_15px_rgba(255,0,255,0.15)] flex flex-col justify-between p-10 sm:p-14 transition-all duration-700 relative overflow-hidden group/cta cursor-default shadow-sm"
+      className="min-w-[280px] sm:min-w-[380px] shrink-0 aspect-[4/3] rounded-[3rem] bg-zinc-50 dark:bg-[#050505] border border-black/5 dark:border-white/5 hover:border-black/10 dark:hover:border-white/10 hover:shadow-[0_0_60px_15px_rgba(255,0,255,0.15)] flex flex-col justify-between p-8 sm:p-10 transition-all duration-700 relative overflow-hidden group/cta cursor-default shadow-sm snap-center"
     >
       <div className="relative z-10 flex flex-col h-full items-start">
-        <div className="flex justify-between items-start w-full mb-6">
+        <div className="flex justify-between items-start w-full mb-4">
           <div className="flex gap-2 items-center">
             <div className="w-1.5 h-1.5 rounded-full bg-brand-purple" />
             <span className="text-[9px] sm:text-[10px] font-black text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em]">Direct Inquiry</span>
@@ -50,12 +50,12 @@ const ProjectCTACard: React.FC = () => {
         </div>
 
         <div className="flex-grow flex flex-col justify-center text-left">
-          <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-black dark:text-white leading-[0.95] mb-6 sm:mb-8 text-balance">
+          <h4 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-black dark:text-white leading-[0.95] mb-4 sm:mb-6 text-balance">
             A singular problem <br />
             <span className="italic text-zinc-300 dark:text-zinc-700">requires a singular solution.</span>
           </h4>
 
-          <div className="relative min-h-[4rem] flex flex-col justify-start text-left">
+          <div className="relative min-h-[3rem] flex flex-col justify-start text-left">
             <AnimatePresence mode="wait">
               <motion.div
                 key={jokeIndex}
@@ -76,10 +76,10 @@ const ProjectCTACard: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-8 w-full">
+        <div className="mt-6 w-full">
           <button
             data-cal-link="nosh-ai-automation/30-minutes-meeting"
-            className="w-full flex items-center justify-center gap-4 py-6 sm:py-7 rounded-[2rem] sm:rounded-[2.5rem] bg-black dark:bg-white text-white dark:text-black text-[10px] sm:text-[12px] font-black uppercase tracking-[0.3em] hover:bg-brand-purple dark:hover:bg-brand-purple hover:text-white dark:hover:text-white transition-all shadow-xl active:scale-95 border-none"
+            className="w-full flex items-center justify-center gap-4 py-5 sm:py-6 rounded-[2rem] sm:rounded-[2.5rem] bg-black dark:bg-white text-white dark:text-black text-[10px] sm:text-[12px] font-black uppercase tracking-[0.3em] hover:bg-brand-purple dark:hover:bg-brand-purple hover:text-white dark:hover:text-white transition-all shadow-xl active:scale-95 border-none"
           >
             Book a Consultation
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
@@ -95,6 +95,7 @@ const ProjectCTACard: React.FC = () => {
 
 export const Work: React.FC = () => {
   const [selected, setSelected] = useState<Project | null>(null);
+  const [modalMode, setModalMode] = useState<'briefing' | 'interactive'>('briefing');
   const [isLoading, setIsLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState<string>('All');
   const scrollRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
@@ -173,6 +174,7 @@ export const Work: React.FC = () => {
               const filteredProjects = PROJECTS.filter(p => p.category === cat.id);
               if (filteredProjects.length === 0) return null;
 
+              // Special Split View for S.A.A.S (Websites)
               if (cat.id === 'Websites') {
                 return (
                   <motion.div
@@ -183,7 +185,6 @@ export const Work: React.FC = () => {
                     transition={{ duration: 0.6 }}
                     className="group/category flex flex-col gap-12 sm:gap-24"
                   >
-                    {/* Category Header - Standard Left Aligned */}
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 mb-8 sm:mb-16 items-end text-left">
                       <div className="lg:col-span-8">
                         <p className="text-brand-purple text-[9px] sm:text-[10px] font-black tracking-[0.5em] uppercase mb-4">{cat.tech}</p>
@@ -192,26 +193,20 @@ export const Work: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Projects List - Refined Split View */}
                     <div className="space-y-32 sm:space-y-48">
                       {filteredProjects.map((project, index) => (
                         <div key={project.id} className={`flex flex-col lg:flex-row gap-8 lg:gap-16 items-start ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-
-                          {/* Text Content - Left Aligned */}
                           <div className="lg:w-2/5 flex flex-col items-start text-left px-4 sm:px-0">
                             <span className="flex items-center gap-3 mb-6">
                               <span className="w-1.5 h-1.5 rounded-full bg-brand-purple animate-pulse"></span>
                               <span className="text-[9px] text-zinc-400 font-black tracking-[0.4em] uppercase">ID: {project.id.toUpperCase()}</span>
                             </span>
-
                             <h4 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black dark:text-white mb-6 tracking-tighter leading-tight">
                               {project.client}
                             </h4>
-
                             <p className="text-base sm:text-lg md:text-xl text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed mb-8 text-balance max-w-lg">
                               {project.description}
                             </p>
-
                             <div className="flex flex-wrap justify-start gap-2 mb-10">
                               {project.techStack?.map((tech, i) => (
                                 <span key={i} className="px-4 py-1.5 rounded-full bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-zinc-500">
@@ -219,7 +214,6 @@ export const Work: React.FC = () => {
                                 </span>
                               ))}
                             </div>
-
                             <a
                               href={project.url}
                               target="_blank"
@@ -231,7 +225,6 @@ export const Work: React.FC = () => {
                             </a>
                           </div>
 
-                          {/* Preview Card - Bigger & Screen-Friendly Ratio */}
                           <div className="lg:w-3/5 w-full flex justify-center perspective-1000">
                             <div className="w-full aspect-video shadow-2xl rounded-[1.5rem] sm:rounded-[2rem] bg-zinc-900 overflow-hidden border border-white/5 relative transform hover:scale-[1.01] transition-transform duration-500">
                               {project.url ? (
@@ -241,14 +234,11 @@ export const Work: React.FC = () => {
                                   <p className="text-zinc-500 font-mono text-xs">NO_PREVIEW_URL_AVAILABLE</p>
                                 </div>
                               )}
-
-                              {/* Mobile/Res indicator overlay */}
                               <div className="absolute top-4 right-4 z-30 px-3 py-1 bg-black/50 backdrop-blur rounded-full border border-white/10 hidden sm:block">
                                 <span className="text-[9px] font-mono text-zinc-400">REMOTE_ACCESS_ACTIVE</span>
                               </div>
                             </div>
                           </div>
-
                         </div>
                       ))}
                     </div>
@@ -256,6 +246,7 @@ export const Work: React.FC = () => {
                 );
               }
 
+              // Default Carousel View for other categories (Automations, Chatbots, Voice Agents)
               return (
                 <motion.div
                   key={cat.id}
@@ -291,7 +282,7 @@ export const Work: React.FC = () => {
 
                     <div
                       ref={el => { scrollRefs.current[cat.id] = el; }}
-                      className="flex gap-6 sm:gap-10 overflow-x-auto pb-16 sm:pb-24 no-scrollbar px-2 snap-x"
+                      className="flex gap-6 sm:gap-8 overflow-x-auto pb-10 sm:pb-16 no-scrollbar px-2 snap-x snap-mandatory"
                     >
                       {isLoading ? (
                         [1, 2, 3].map(i => <SkeletonProjectCard key={i} />)
@@ -301,12 +292,15 @@ export const Work: React.FC = () => {
                             <motion.div
                               key={project.id}
                               whileHover={{ y: -10 }}
-                              onClick={() => setSelected(project)}
-                              className="min-w-[300px] sm:min-w-[480px] shrink-0 aspect-[4/5] rounded-[2.5rem] sm:rounded-[3.5rem] bg-zinc-100 dark:bg-zinc-900 border border-black/5 dark:border-white/5 hover:border-black/10 dark:hover:border-white/10 hover:shadow-[0_0_60px_15px_rgba(255,0,255,0.15)] overflow-hidden relative group shadow-sm transition-all duration-700 cursor-pointer snap-center"
+                              onClick={() => {
+                                setSelected(project);
+                                setModalMode('briefing');
+                              }}
+                              className="min-w-[280px] sm:min-w-[380px] shrink-0 aspect-[4/3] rounded-[3rem] bg-zinc-100 dark:bg-zinc-900 border border-black/5 dark:border-white/5 hover:border-black/10 dark:hover:border-white/10 hover:shadow-[0_0_60px_15px_rgba(255,0,255,0.15)] overflow-hidden relative group shadow-sm transition-all duration-700 cursor-pointer snap-center"
                             >
                               <div className="absolute inset-0">
                                 {project.media?.[0]?.type === 'video' ? (
-                                  <video src={project.media[0].src} autoPlay muted loop className="w-full h-full object-cover opacity-60 transition-opacity duration-700" />
+                                  <video src={project.media[0].src} className="w-full h-full object-cover opacity-60 transition-opacity duration-700" />
                                 ) : (
                                   <img src={project.media?.[0]?.src} className="w-full h-full object-cover opacity-60 transition-opacity duration-700" alt="" />
                                 )}
@@ -318,9 +312,7 @@ export const Work: React.FC = () => {
                               </div>
                             </motion.div>
                           ))}
-                          <div className="snap-center">
-                            <ProjectCTACard />
-                          </div>
+                          <ProjectCTACard />
                         </>
                       )}
                     </div>
@@ -349,17 +341,31 @@ export const Work: React.FC = () => {
               className="max-w-[1000px] w-full h-[95vh] bg-[#0A0A0A] border border-white/5 rounded-[2rem] sm:rounded-[4rem] overflow-y-auto no-scrollbar relative shadow-2xl flex flex-col pointer-events-auto"
               onClick={e => e.stopPropagation()}
             >
-              <div className="w-full h-[50vh] sm:h-[95vh] bg-[#1A1A1A] relative shrink-0 border-b border-white/5 overflow-hidden">
-                {selected.media?.[0]?.type === 'video' ? (
-                  <video src={selected.media[0].src} autoPlay muted loop className="w-full h-full object-cover" />
+              {/* Modal Media Area */}
+              <div className="w-full h-[50vh] sm:h-[65vh] bg-[#1A1A1A] relative shrink-0 border-b border-white/5 overflow-hidden">
+                {modalMode === 'interactive' && selected.url ? (
+                  <div className="w-full h-full p-4 sm:p-8">
+                    <WebsiteCard url={selected.url} title={selected.client} isEmbeddable={selected.isEmbeddable} />
+                  </div>
                 ) : (
-                  <img src={selected.media?.[0]?.src} className="w-full h-full object-cover" alt="" />
+                  <>
+                    {selected.media?.[0]?.type === 'video' ? (
+                      <video
+                        src={selected.media[0].src}
+                        controls
+                        playsInline
+                        className="w-full h-full object-contain relative z-10"
+                      />
+                    ) : (
+                      <img src={selected.media?.[0]?.src} className="w-full h-full object-contain" alt="" />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent opacity-60" />
+                  </>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent opacity-60" />
 
                 <button
                   onClick={() => setSelected(null)}
-                  className="absolute top-6 right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/25 backdrop-blur-md flex items-center justify-center text-white transition-all active:scale-90 z-20"
+                  className="absolute top-6 right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/25 backdrop-blur-md flex items-center justify-center text-white transition-all active:scale-90 z-40"
                 >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
                 </button>
@@ -382,11 +388,15 @@ export const Work: React.FC = () => {
                   <div className="flex gap-4 md:pt-4 shrink-0">
                     <div className="px-4 py-3 sm:px-6 sm:py-4 rounded-xl bg-zinc-900/50 border border-white/5 text-center min-w-[100px] sm:min-w-[130px]">
                       <p className="text-[7px] sm:text-[9px] font-black text-zinc-500 uppercase tracking-widest mb-1 opacity-70">EFFICIENCY</p>
-                      <p className="text-lg sm:text-2xl font-bold text-white tracking-tighter">99.9%</p>
+                      <p className="text-lg sm:text-2xl font-bold text-white tracking-tighter">
+                        {selected.efficiency || (Math.random() * (93 - 85) + 85).toFixed(1) + '%'}
+                      </p>
                     </div>
                     <div className="px-4 py-3 sm:px-6 sm:py-4 rounded-xl bg-zinc-900/50 border border-white/5 text-center min-w-[120px] sm:min-w-[150px]">
                       <p className="text-[7px] sm:text-[9px] font-black text-zinc-500 uppercase tracking-widest mb-1 opacity-70">REGISTRY</p>
-                      <p className="text-lg sm:text-2xl font-bold text-brand-purple tracking-tighter uppercase italic">2026_CORE</p>
+                      <p className="text-lg sm:text-2xl font-black text-brand-purple tracking-tighter uppercase font-mono">
+                        {selected.registry || 'CORE_STD_00'}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -402,14 +412,27 @@ export const Work: React.FC = () => {
                 </div>
 
                 <div className="flex flex-col md:flex-row items-center gap-4 sm:gap-6 pt-10 pb-12 border-t border-white/5 w-full">
+                  {selected.url && (
+                    <button
+                      onClick={() => setModalMode(modalMode === 'briefing' ? 'interactive' : 'briefing')}
+                      className={`w-full md:w-auto px-10 sm:px-12 py-4 sm:py-5 rounded-full text-[10px] sm:text-[11px] font-black uppercase tracking-[0.3em] transition-all shadow-xl active:scale-95 flex items-center justify-center gap-3 ${modalMode === 'interactive'
+                        ? 'bg-brand-purple text-white'
+                        : 'bg-white text-black hover:bg-zinc-200'
+                        }`}
+                    >
+                      <span>{modalMode === 'interactive' ? 'EXIT_TEST_INSTANCE' : 'INITIALIZE_TEST_INTERFACE'}</span>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg>
+                    </button>
+                  )}
+
                   <button
                     onClick={() => setSelected(null)}
-                    className="w-full md:w-auto px-10 sm:px-12 py-4 sm:py-5 rounded-full bg-white text-black text-[10px] sm:text-[11px] font-black uppercase tracking-[0.3em] hover:bg-brand-purple hover:text-white transition-all shadow-xl active:scale-95"
+                    className="w-full md:w-auto px-10 sm:px-12 py-4 sm:py-5 rounded-full border border-white/10 text-zinc-400 text-[10px] sm:text-[11px] font-black uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all"
                   >
                     CLOSE_BRIEFING
                   </button>
 
-                  <div className="w-full md:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full border border-white/5 text-zinc-700 text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-center bg-zinc-950/30">
+                  <div className="w-full md:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-full border border-white/5 text-zinc-700 text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-center bg-zinc-950/30 ml-auto">
                     SYSTEM-ID: {selected.id.toUpperCase()}
                   </div>
                 </div>

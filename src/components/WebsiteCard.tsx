@@ -5,12 +5,13 @@ interface WebsiteCardProps {
     url: string;
     title: string;
     isEmbeddable?: boolean;
+    immediate?: boolean;
 }
 
 type Viewport = 'desktop' | 'tablet' | 'mobile';
 
-export const WebsiteCard: React.FC<WebsiteCardProps> = ({ url, title, isEmbeddable = true }) => {
-    const [isActive, setIsActive] = useState(false);
+export const WebsiteCard: React.FC<WebsiteCardProps> = ({ url, title, isEmbeddable = true, immediate = false }) => {
+    const [isActive, setIsActive] = useState(immediate);
     const [isLoaded, setIsLoaded] = useState(false);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [viewport, setViewport] = useState<Viewport>('desktop');
