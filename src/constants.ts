@@ -3,33 +3,40 @@ import { Project, AtmosphereItem, Achievement, Website, TeamMember } from './typ
 export const PROJECTS: Project[] = [
   // AI Automations
   {
-    id: 'logic-flow-omega',
-    client: 'Lumina Health',
-    scope: 'Clinical Logic Engine',
-    description: "We worked with Lumina Health to solve a critical bottleneck: their triage team was drowning in data while patients waited for answers. We built a 'Clinical Brain' that understands patient data in real-time, instantly routing every piece of information to the right specialist. This wasn't just about overhead—it was about creating a system that thinks alongside doctors, allowing Lumina to respond 40% faster when every second counts.",
+    id: 'body-utopia',
+    client: 'Body Utopia',
+    scope: 'AI Robotic Sculpting Engine',
+    description: "implemented an AI-powered outbound voice and appointment booking system that activated 8,000+ dormant leads, automatically qualified prospects, and converted interest into scheduled appointments at scale. The system replaced manual calling with continuous AI outreach, reduced operational workload by up to 80%, and established a reliable, automated booking pipeline with seamless AI-to-human handover, turning unused data into consistent revenue flow.",
     category: 'AI Automations',
+    url: 'https://case-study-body-utopia.vercel.app/',
+    efficiency: '96.4%',
+    registry: 'BT_SCLPT_01',
     media: [
-      { type: 'video', src: '/assets/circuit-board.mp4' },
       { type: 'image', src: '/assets/logic-flow.jpg' }
     ]
   },
   {
-    id: 'neural-interface-one',
-    client: 'Shift Capital',
-    scope: 'Market Intelligence Layer',
-    description: "Shift Capital came to us needing more than just better data—they needed an unfair advantage in a market that never sleeps. We developed a neural intelligence layer that scans millions of global signals per second, identifying subtle market shifts that human analysts might miss for hours. By turning chaos into clear, actionable signals, we gave their team a 3x speed advantage, allowing them to move with total confidence before the rest of the world even knows the market is shifting.",
+    id: 'tax-advisory-11',
+    client: 'Tax Advisory 11',
+    scope: 'AI Compliance & Advisory Layer',
+    description: "deployed an AI lead-calling and qualification system that activated 5,000 warm leads, automatically filtering intent, readiness, and service fit before routing only high-quality prospects to human advisors. This eliminated wasted conversations, reduced response times to minutes, and transformed advisor time into high-value consultations, creating a predictable, efficient, and scalable advisory pipeline without increasing staffing or operational costs.",
     category: 'AI Automations',
+    url: 'https://case-study-tax-advisory-11.vercel.app/',
+    efficiency: '94.8%',
+    registry: 'TX_CMPL_11',
     media: [
-      { type: 'video', src: '/assets/abstract-tech.mp4' },
       { type: 'image', src: '/assets/neural-interface.jpg' }
     ]
   },
   {
-    id: 'auto-infra-3',
-    client: 'Veridian Logistics',
-    scope: 'Supply Chain Synapse',
-    description: "Logistics is often a constant battle against the unexpected. For Veridian, we transformed their static warehouse into a 'Living Organism.' We built a digital nervous system that predicts bottlenecks before they happen, automatically re-routing assets and labor in real-time. By automating 85% of their core logic, the system now self-corrects and optimizes without human intervention, ensuring that the supply chain never stops moving.",
+    id: 'join-gavel',
+    client: 'Join Gavel',
+    scope: 'Legal Document Orchestration',
+    description: "automated Join Gavel’s recruitment operations by building AI-assisted screening, workflow automation, and communication systems that replaced manual processes with structured, scalable hiring infrastructure. The result was faster hiring cycles, reduced operational load, and a streamlined recruitment pipeline that operates efficiently at scale without increasing recruiter headcount.",
     category: 'AI Automations',
+    url: 'https://case-study-join-gavel.vercel.app/',
+    efficiency: '97.2%',
+    registry: 'GAVL_LGL_09',
     media: [
       { type: 'image', src: '/assets/auto-infra.jpg' }
     ]

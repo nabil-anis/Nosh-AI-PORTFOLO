@@ -296,20 +296,54 @@ export const Work: React.FC = () => {
                                 setSelected(project);
                                 setModalMode('briefing');
                               }}
-                              className="min-w-[280px] sm:min-w-[380px] shrink-0 aspect-[4/3] rounded-[3rem] bg-zinc-100 dark:bg-zinc-900 border border-black/5 dark:border-white/5 hover:border-black/10 dark:hover:border-white/10 hover:shadow-[0_0_60px_15px_rgba(255,0,255,0.15)] overflow-hidden relative group shadow-sm transition-all duration-700 cursor-pointer snap-center"
+                              className={`min-w-[280px] sm:min-w-[380px] shrink-0 aspect-[4/3] rounded-[3rem] border border-black/5 dark:border-white/5 hover:border-black/10 dark:hover:border-white/10 hover:shadow-[0_0_60px_15px_rgba(177,83,215,0.15)] overflow-hidden relative group shadow-sm transition-all duration-700 cursor-pointer snap-center flex flex-col items-center justify-center p-12 text-center ${project.category === 'AI Automations'
+                                ? 'bg-zinc-50 dark:bg-[#050505]'
+                                : 'bg-zinc-100 dark:bg-zinc-900'
+                                }`}
                             >
-                              <div className="absolute inset-0">
-                                {project.media?.[0]?.type === 'video' ? (
-                                  <video src={project.media[0].src} className="w-full h-full object-cover opacity-60 transition-opacity duration-700" />
-                                ) : (
-                                  <img src={project.media?.[0]?.src} className="w-full h-full object-cover opacity-60 transition-opacity duration-700" alt="" />
-                                )}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                              </div>
-                              <div className="absolute bottom-10 sm:bottom-12 left-10 sm:left-12 right-10 sm:right-12 text-white z-20 text-left">
-                                <p className="text-brand-purple text-[8px] sm:text-[10px] font-black tracking-[0.4em] uppercase mb-2">{project.client}</p>
-                                <h4 className="text-3xl sm:text-4xl font-bold tracking-tighter leading-tight">{project.scope}</h4>
-                              </div>
+                              {project.category === 'AI Automations' ? (
+                                <>
+                                  <div className="absolute top-8 left-10 right-10 flex justify-between items-start opacity-40">
+                                    <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">{project.client}</span>
+                                    <span className="text-[10px] font-mono text-zinc-500">{project.registry || 'SYSTEM_00'}</span>
+                                  </div>
+
+                                  <div className="flex flex-col items-center gap-6">
+                                    <div className="flex flex-col items-center">
+                                      <p className="text-brand-purple text-[10px] sm:text-[11px] font-black tracking-[0.4em] uppercase mb-4">Industrial Intelligence</p>
+                                      <h4 className="text-3xl sm:text-5xl font-bold tracking-tighter leading-[0.95] text-black dark:text-white max-w-[280px]">
+                                        {project.scope}
+                                      </h4>
+                                    </div>
+
+                                    <button
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        window.open(project.url, '_blank');
+                                      }}
+                                      className="group/link flex flex-col items-center gap-1 mt-4"
+                                    >
+                                      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 group-hover/link:text-brand-purple transition-colors">Tap here for the case study</span>
+                                      <div className="w-12 h-[1px] bg-zinc-200 dark:bg-zinc-800 group-hover/link:bg-brand-purple group-hover/link:shadow-[0_0_10px_#B153D7] transition-all" />
+                                    </button>
+                                  </div>
+                                </>
+                              ) : (
+                                <>
+                                  <div className="absolute inset-0">
+                                    {project.media?.[0]?.type === 'video' ? (
+                                      <video src={project.media[0].src} className="w-full h-full object-cover opacity-60 transition-opacity duration-700" />
+                                    ) : (
+                                      <img src={project.media?.[0]?.src} className="w-full h-full object-cover opacity-60 transition-opacity duration-700" alt="" />
+                                    )}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                                  </div>
+                                  <div className="absolute bottom-10 sm:bottom-12 left-10 sm:left-12 right-10 sm:right-12 text-white z-20 text-left">
+                                    <p className="text-brand-purple text-[8px] sm:text-[10px] font-black tracking-[0.4em] uppercase mb-2">{project.client}</p>
+                                    <h4 className="text-3xl sm:text-4xl font-bold tracking-tighter leading-tight">{project.scope}</h4>
+                                  </div>
+                                </>
+                              )}
                             </motion.div>
                           ))}
                           <ProjectCTACard />
@@ -342,34 +376,47 @@ export const Work: React.FC = () => {
               onClick={e => e.stopPropagation()}
             >
               {/* Modal Media Area */}
-              <div className="w-full h-[50vh] sm:h-[65vh] bg-[#1A1A1A] relative shrink-0 border-b border-white/5 overflow-hidden">
-                {modalMode === 'interactive' && selected.url ? (
-                  <div className="w-full h-full p-4 sm:p-8">
-                    <WebsiteCard url={selected.url} title={selected.client} isEmbeddable={selected.isEmbeddable} />
-                  </div>
-                ) : (
-                  <>
-                    {selected.media?.[0]?.type === 'video' ? (
-                      <video
-                        src={selected.media[0].src}
-                        controls
-                        playsInline
-                        className="w-full h-full object-contain relative z-10"
-                      />
-                    ) : (
-                      <img src={selected.media?.[0]?.src} className="w-full h-full object-contain" alt="" />
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent opacity-60" />
-                  </>
-                )}
+              {selected.category !== 'AI Automations' && (
+                <div className="w-full h-[50vh] sm:h-[65vh] bg-[#1A1A1A] relative shrink-0 border-b border-white/5 overflow-hidden">
+                  {modalMode === 'interactive' && selected.url ? (
+                    <div className="w-full h-full p-4 sm:p-8">
+                      <WebsiteCard url={selected.url} title={selected.client} isEmbeddable={selected.isEmbeddable} />
+                    </div>
+                  ) : (
+                    <>
+                      {selected.media?.[0]?.type === 'video' ? (
+                        <video
+                          src={selected.media[0].src}
+                          controls
+                          playsInline
+                          className="w-full h-full object-contain relative z-10"
+                        />
+                      ) : (
+                        <img src={selected.media?.[0]?.src} className="w-full h-full object-contain" alt="" />
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent opacity-60" />
+                    </>
+                  )}
 
-                <button
-                  onClick={() => setSelected(null)}
-                  className="absolute top-6 right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/25 backdrop-blur-md flex items-center justify-center text-white transition-all active:scale-90 z-40"
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
-                </button>
-              </div>
+                  <button
+                    onClick={() => setSelected(null)}
+                    className="absolute top-6 right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/25 backdrop-blur-md flex items-center justify-center text-white transition-all active:scale-90 z-40"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+                  </button>
+                </div>
+              )}
+
+              {selected.category === 'AI Automations' && (
+                <div className="absolute top-10 right-10">
+                  <button
+                    onClick={() => setSelected(null)}
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/25 backdrop-blur-md flex items-center justify-center text-white transition-all active:scale-90 z-40"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+                  </button>
+                </div>
+              )}
 
               <div className="p-8 sm:p-14 bg-[#0A0A0A] flex flex-col gap-10 sm:gap-16 items-start">
                 <div className="flex flex-col md:flex-row justify-between items-start w-full gap-8">
@@ -414,13 +461,24 @@ export const Work: React.FC = () => {
                 <div className="flex flex-col md:flex-row items-center gap-4 sm:gap-6 pt-10 pb-12 border-t border-white/5 w-full">
                   {selected.url && (
                     <button
-                      onClick={() => setModalMode(modalMode === 'briefing' ? 'interactive' : 'briefing')}
+                      onClick={() => {
+                        if (selected.category === 'AI Automations') {
+                          window.open(selected.url, '_blank');
+                        } else {
+                          setModalMode(modalMode === 'briefing' ? 'interactive' : 'briefing');
+                        }
+                      }}
                       className={`w-full md:w-auto px-10 sm:px-12 py-4 sm:py-5 rounded-full text-[10px] sm:text-[11px] font-black uppercase tracking-[0.3em] transition-all shadow-xl active:scale-95 flex items-center justify-center gap-3 ${modalMode === 'interactive'
                         ? 'bg-brand-purple text-white'
                         : 'bg-white text-black hover:bg-zinc-200'
                         }`}
                     >
-                      <span>{modalMode === 'interactive' ? 'EXIT_TEST_INSTANCE' : 'INITIALIZE_TEST_INTERFACE'}</span>
+                      <span>
+                        {selected.category === 'AI Automations'
+                          ? 'OPEN_CASE_STUDY'
+                          : modalMode === 'interactive' ? 'EXIT_TEST_INSTANCE' : 'INITIALIZE_TEST_INTERFACE'
+                        }
+                      </span>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg>
                     </button>
                   )}
