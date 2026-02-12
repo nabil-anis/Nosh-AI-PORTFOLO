@@ -5,8 +5,8 @@ export const PROJECTS: Project[] = [
   {
     id: 'body-utopia',
     client: 'Body Utopia',
-    scope: 'AI Robotic Sculpting Engine',
-    description: "implemented an AI-powered outbound voice and appointment booking system that activated 8,000+ dormant leads, automatically qualified prospects, and converted interest into scheduled appointments at scale. The system replaced manual calling with continuous AI outreach, reduced operational workload by up to 80%, and established a reliable, automated booking pipeline with seamless AI-to-human handover, turning unused data into consistent revenue flow.",
+    scope: "Autonomous Voice & Appointment Booking",
+    description: "Implemented an AI-powered outbound voice and appointment booking system that activated 8,000+ dormant leads, automatically qualified prospects, and converted interest into scheduled appointments at scale. The system replaced manual calling with continuous AI outreach, reduced operational workload by up to 80%, and established a reliable, automated booking pipeline with seamless AI-to-human handover, turning unused data into consistent revenue flow.",
     category: 'AI Automations',
     url: 'https://case-study-body-utopia.vercel.app/',
     efficiency: '96.4%',
@@ -18,7 +18,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'tax-advisory-11',
     client: 'Tax Advisory 11',
-    scope: 'AI Compliance & Advisory Layer',
+    scope: "AI Lead Qualification Engine",
     description: "deployed an AI lead-calling and qualification system that activated 5,000 warm leads, automatically filtering intent, readiness, and service fit before routing only high-quality prospects to human advisors. This eliminated wasted conversations, reduced response times to minutes, and transformed advisor time into high-value consultations, creating a predictable, efficient, and scalable advisory pipeline without increasing staffing or operational costs.",
     category: 'AI Automations',
     url: 'https://case-study-tax-advisory-11.vercel.app/',
@@ -31,8 +31,8 @@ export const PROJECTS: Project[] = [
   {
     id: 'join-gavel',
     client: 'Join Gavel',
-    scope: 'Legal Document Orchestration',
-    description: "automated Join Gavel’s recruitment operations by building AI-assisted screening, workflow automation, and communication systems that replaced manual processes with structured, scalable hiring infrastructure. The result was faster hiring cycles, reduced operational load, and a streamlined recruitment pipeline that operates efficiently at scale without increasing recruiter headcount.",
+    scope: "Recruitment Workflow Automation",
+    description: "Automated Join Gavel’s recruitment operations by building AI-assisted screening, workflow automation, and communication systems that replaced manual processes with structured, scalable hiring infrastructure. The result was faster hiring cycles, reduced operational load, and a streamlined recruitment pipeline that operates efficiently at scale without increasing recruiter headcount.",
     category: 'AI Automations',
     url: 'https://case-study-join-gavel.vercel.app/',
     efficiency: '97.2%',
