@@ -178,7 +178,7 @@ export const TEAM: TeamMember[] = [
     id: 'lead',
     name: 'Founder',
     role: 'Lead Architect',
-    bio: 'A builder, not a spectator. Architects the primary logic gates and technical philosophy that drives NOSH.',
+    bio: 'A builder, not a spectator. Architects the primary logic gates and technical philosophy that drives my practice.',
     image: '/assets/team-lead.jpg'
   },
   {

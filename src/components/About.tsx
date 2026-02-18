@@ -22,7 +22,7 @@ export const About: React.FC = () => {
               Rigour is a <br />
               <span className="text-gray-300 dark:text-zinc-800 italic">Personality.</span>
             </p>
-            
+
             <div className="space-y-10 md:space-y-12">
               <p className="text-xl md:text-3xl font-medium text-black dark:text-white leading-tight text-balance">
                 Navigating Computer Science with a builder’s spine and a designer’s eye.
@@ -63,7 +63,7 @@ export const About: React.FC = () => {
 
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-brand rounded-[3rem] blur opacity-5 group-hover:opacity-20 transition duration-1000"></div>
-                <motion.div 
+                <motion.div
                   whileHover={{ y: -5 }}
                   className="relative p-8 md:p-14 bg-white dark:bg-black rounded-[3rem] border border-black/[0.05] dark:border-white/[0.05] shadow-sm"
                 >
@@ -72,7 +72,7 @@ export const About: React.FC = () => {
                   </p>
                   <div className="mt-8 pt-8 md:mt-10 md:pt-10 border-t border-black/[0.05] dark:border-white/[0.05]">
                     <p className="text-[9px] md:text-[10px] text-gray-400 dark:text-gray-500 font-bold uppercase tracking-[0.2em]">
-                      NOSH • 2025 Foundation
+                      Bilal Zindani • 2025 Foundation
                     </p>
                   </div>
                 </motion.div>

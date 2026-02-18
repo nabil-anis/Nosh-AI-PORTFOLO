@@ -69,28 +69,28 @@ const App: React.FC = () => {
           {/* Left Column: Stylized Logo Stacked above Text */}
           <div className="flex flex-col items-center md:items-start gap-1">
             <a
-              href="https://noshaiautomation.com/"
+              href="mailto:bilalzindani1@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
               className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center hover:scale-110 transition-transform active:scale-95 transition-all"
             >
               <img
                 src="/nosh-logo.webp"
-                alt="NOSH AI"
+                alt="Bilal Zindani"
                 className="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(177,83,215,0.2)]"
               />
             </a>
           </div>
 
           <div className="flex justify-center gap-12 text-[9px] font-black uppercase tracking-[0.3em] text-gray-400">
-            <a href="https://noshaiautomation.com/contact/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-purple transition-colors">Contact</a>
-            <a href="https://www.linkedin.com/company/nosh-solutions" target="_blank" rel="noopener noreferrer" className="hover:text-brand-purple transition-colors">LinkedIn</a>
-            <a href="https://www.instagram.com/noshaiautomation" target="_blank" rel="noopener noreferrer" className="hover:text-brand-purple transition-colors">Instagram</a>
+            <a href="mailto:bilalzindani1@gmail.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-purple transition-colors">Contact</a>
+            <a href="https://www.linkedin.com/in/bilal-zindani" target="_blank" rel="noopener noreferrer" className="hover:text-brand-purple transition-colors">LinkedIn</a>
+            <a href="https://www.instagram.com/bilal_zindani18/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-purple transition-colors">Instagram</a>
           </div>
 
           <div className="flex justify-center md:justify-end">
             <p className="text-[10px] font-black text-gray-400 dark:text-zinc-700 uppercase tracking-[0.2em] text-center md:text-right">
-              © 2026 NOSH AI AUTOMATIONS
+              © 2026 Bilal Zindani
             </p>
           </div>
         </div>

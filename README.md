@@ -1,5 +1,5 @@
 
-# NOSH | Engine. Systems. Design.
+# BILAL ZINDANI | Engine. Systems. Design.
 
 A premium, Apple-inspired portfolio built for high-performance builders—emphasizing technical rigour and a discipline for building high-leverage systems.
 

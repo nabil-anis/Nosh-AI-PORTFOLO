@@ -26,13 +26,13 @@ export const AboutPage: React.FC = () => {
             <span className="text-gray-300 dark:text-zinc-800 italic">Human.</span>
           </h1>
           <p className="text-xl md:text-3xl font-medium text-gray-500 dark:text-gray-400 max-w-2xl leading-tight text-balance">
-            A builder, not a spectator. A mind wired for systems, flows, and elegant shortcuts. 
-            NOSH exists as a counter-weight to noise. We believe in high-leverage systems, aesthetic restraint, and absolute precision.
+            A builder, not a spectator. A mind wired for systems, flows, and elegant shortcuts.
+            My practice exists as a counter-weight to noise. I believe in high-leverage systems, aesthetic restraint, and absolute precision.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mb-24">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -49,7 +49,7 @@ export const AboutPage: React.FC = () => {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -64,7 +64,7 @@ export const AboutPage: React.FC = () => {
           </motion.div>
 
           {/* Specs Table */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -95,9 +95,9 @@ export const AboutPage: React.FC = () => {
             </p>
           </div>
           <div className="mt-12 flex justify-center gap-6">
-             <div className="w-2 h-2 rounded-full bg-brand-purple animate-pulse" />
-             <div className="w-2 h-2 rounded-full bg-brand-purple animate-pulse [animation-delay:0.2s]" />
-             <div className="w-2 h-2 rounded-full bg-brand-purple animate-pulse [animation-delay:0.4s]" />
+            <div className="w-2 h-2 rounded-full bg-brand-purple animate-pulse" />
+            <div className="w-2 h-2 rounded-full bg-brand-purple animate-pulse [animation-delay:0.2s]" />
+            <div className="w-2 h-2 rounded-full bg-brand-purple animate-pulse [animation-delay:0.4s]" />
           </div>
         </motion.div>
       </div>

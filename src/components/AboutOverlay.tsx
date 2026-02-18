@@ -86,14 +86,14 @@ export const AboutOverlay: React.FC<AboutOverlayProps> = ({ isOpen, onClose }) =
               <div className="relative w-24 h-24 md:w-40 md:h-40 flex items-center justify-center z-0">
                 <img
                   src='/nosh-logo.webp'
-                  alt="NOSH AI Logo"
+                  alt="Bilal Zindani Logo"
                   className="w-full h-full object-contain filter drop-shadow-[0_0_20px_rgba(177,83,215,0.3)] opacity-90"
                 />
               </div>
 
               <div className="text-center -mt-6 md:-mt-10 relative z-10">
                 <h1 className="text-5xl md:text-8xl font-black tracking-tighter text-black dark:text-white uppercase leading-none drop-shadow-sm">
-                  NOSH AI
+                  Bilal Zindani
                 </h1>
                 <p className="text-[10px] md:text-sm font-black tracking-[0.5em] text-zinc-400 dark:text-zinc-600 uppercase mt-4">
                   AUTOMATION ORCHESTRATION
@@ -108,7 +108,7 @@ export const AboutOverlay: React.FC<AboutOverlayProps> = ({ isOpen, onClose }) =
             className="max-w-2xl mt-16"
           >
             <p className="text-lg md:text-2xl text-gray-500 dark:text-gray-400 font-medium leading-tight text-balance">
-              Orchestrating autonomous logic. NOSH AI exists to <span className="text-brand-purple italic">bridge the gap</span> between human intent and machine execution.
+              Orchestrating autonomous logic. Bilal Zindani exists to <span className="text-brand-purple italic">bridge the gap</span> between human intent and machine execution.
             </p>
           </motion.div>
         </section>
@@ -190,7 +190,7 @@ export const AboutOverlay: React.FC<AboutOverlayProps> = ({ isOpen, onClose }) =
             <p className="text-gray-400 dark:text-zinc-600 text-sm font-medium">Available for architectural consultation and deployment orchestration for 2026.</p>
           </div>
           <a
-            href="https://noshaiautomation.com/contact/"
+            href="mailto:bilalzindani1@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-4 px-10 py-5 rounded-full bg-black dark:bg-white text-white dark:text-black text-[11px] font-black uppercase tracking-[0.3em] hover:scale-105 active:scale-95 transition-all shadow-2xl"
