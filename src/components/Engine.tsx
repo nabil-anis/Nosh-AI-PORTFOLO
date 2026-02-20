@@ -80,7 +80,7 @@ export const Engine: React.FC = () => {
           >
             <span className="text-brand-purple text-[9px] sm:text-[10px] font-black tracking-[0.5em] uppercase mb-6 sm:mb-8 inline-block">Systems, Orchestrated.</span>
             <h2 className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tighter text-black dark:text-white leading-[0.9] mb-8 sm:mb-12">
-              Bilal Zindani <br /><span className="text-gray-200 dark:text-zinc-800 italic">CAPABILITIES</span>
+              NOSH-AI <br /><span className="text-gray-200 dark:text-zinc-800 italic">CAPABILITIES</span>
             </h2>
 
             <p className="text-lg sm:text-xl md:text-2xl text-gray-500 dark:text-gray-400 font-medium max-w-2xl leading-tight">

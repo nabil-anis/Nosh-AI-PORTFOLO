@@ -76,7 +76,7 @@ const App: React.FC = () => {
             >
               <img
                 src="/nosh-logo.webp"
-                alt="Bilal Zindani"
+                alt="NOSH"
                 className="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(177,83,215,0.2)]"
               />
             </a>
@@ -90,7 +90,7 @@ const App: React.FC = () => {
 
           <div className="flex justify-center md:justify-end">
             <p className="text-[10px] font-black text-gray-400 dark:text-zinc-700 uppercase tracking-[0.2em] text-center md:text-right">
-              © 2026 Bilal Zindani
+              © 2026 NOSH-AI
             </p>
           </div>
         </div>

@@ -68,7 +68,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onPageChange, isDar
                     transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                     className="text-[10px] md:text-sm font-black tracking-widest text-black dark:text-white uppercase"
                   >
-                    BILAL.
+                    NOSH.
                   </motion.span>
                 )}
               </AnimatePresence>

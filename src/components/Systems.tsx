@@ -77,7 +77,7 @@ export const Systems: React.FC = () => {
             transition={{ duration: 1.2 }}
             className="lg:col-span-7 xl:col-span-8"
           >
-            <span className="text-brand-pink text-[10px] font-black tracking-[0.5em] uppercase mb-8 inline-block drop-shadow-[0_0_8px_rgba(208,96,171,0.4)]">BILAL ZINDANI CAPABILITIES</span>
+            <span className="text-brand-pink text-[10px] font-black tracking-[0.5em] uppercase mb-8 inline-block drop-shadow-[0_0_8px_rgba(208,96,171,0.4)]">NOSH-AI CAPABILITIES</span>
             <h2 className="text-5xl md:text-7xl xl:text-8xl font-bold tracking-tighter text-black dark:text-white leading-[0.9] mb-12">
               Systems,<br /><span className="text-brand-pink/20 dark:text-zinc-800 italic">Orchestrated.</span>
             </h2>

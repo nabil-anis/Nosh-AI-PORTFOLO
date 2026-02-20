@@ -72,7 +72,7 @@ export const About: React.FC = () => {
                   </p>
                   <div className="mt-8 pt-8 md:mt-10 md:pt-10 border-t border-black/[0.05] dark:border-white/[0.05]">
                     <p className="text-[9px] md:text-[10px] text-gray-400 dark:text-gray-500 font-bold uppercase tracking-[0.2em]">
-                      Bilal Zindani • 2025 Foundation
+                      NOSH-AI • 2026 Foundation
                     </p>
                   </div>
                 </motion.div>
