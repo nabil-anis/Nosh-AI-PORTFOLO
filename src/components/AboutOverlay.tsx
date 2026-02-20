@@ -93,7 +93,7 @@ export const AboutOverlay: React.FC<AboutOverlayProps> = ({ isOpen, onClose }) =
 
               <div className="text-center -mt-6 md:-mt-10 relative z-10">
                 <h1 className="text-5xl md:text-8xl font-black tracking-tighter text-black dark:text-white uppercase leading-none drop-shadow-sm">
-                  NOSH-AI
+                  NOSH AI
                 </h1>
                 <p className="text-[10px] md:text-sm font-black tracking-[0.5em] text-zinc-400 dark:text-zinc-600 uppercase mt-4">
                   AUTOMATION ORCHESTRATION
@@ -110,32 +110,6 @@ export const AboutOverlay: React.FC<AboutOverlayProps> = ({ isOpen, onClose }) =
             <p className="text-lg md:text-2xl text-gray-500 dark:text-gray-400 font-medium leading-tight text-balance">
               Orchestrating autonomous logic. NOSH exists to <span className="text-brand-purple italic">bridge the gap</span> between human intent and machine execution.
             </p>
-          </motion.div>
-
-          {/* CV Buttons */}
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.1 }}
-            className="flex flex-wrap justify-center gap-4 mt-12"
-          >
-            <a
-              href="/cv.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 rounded-full bg-black dark:bg-white text-white dark:text-black text-[10px] font-black uppercase tracking-[0.2em] hover:bg-brand-purple dark:hover:bg-brand-purple hover:text-white dark:hover:text-white transition-all shadow-xl active:scale-95 flex items-center gap-2"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" /><circle cx="12" cy="12" r="3" /></svg>
-              View CV
-            </a>
-            <a
-              href="/cv.pdf"
-              download
-              className="px-8 py-4 rounded-full border border-black/10 dark:border-white/10 text-black dark:text-white text-[10px] font-black uppercase tracking-[0.2em] hover:bg-brand-purple hover:text-white hover:border-transparent transition-all shadow-xl active:scale-95 flex items-center gap-2"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
-              Download CV
-            </a>
           </motion.div>
         </section>
 

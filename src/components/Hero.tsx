@@ -41,7 +41,7 @@ export const Hero: React.FC = () => {
             Builders, <br className="sm:hidden" /> not spectators.
           </h1>
           <p className="text-lg sm:text-xl text-gray-500 dark:text-gray-400 font-medium leading-tight max-w-2xl">
-            Engineered for systems, flows, and elegant shortcuts. Welcome. I am <span className="text-brand-purple font-black italic">NOSH-AI</span>.
+            Engineered for systems, flows, and elegant shortcuts. Welcome. I am <span className="text-brand-purple font-black italic">NOSH AI</span>.
           </p>
         </motion.div>
 

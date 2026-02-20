@@ -90,7 +90,7 @@ const App: React.FC = () => {
 
           <div className="flex justify-center md:justify-end">
             <p className="text-[10px] font-black text-gray-400 dark:text-zinc-700 uppercase tracking-[0.2em] text-center md:text-right">
-              © 2026 NOSH-AI
+              © 2026 NOSH AI
             </p>
           </div>
         </div>
